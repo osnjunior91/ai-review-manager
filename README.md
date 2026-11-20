@@ -1,190 +1,133 @@
 # AI Review Manager
 
-### AI-Powered Customer Feedback Analysis & Intelligent Review Management
+**AI-Powered Customer Feedback Analysis & Intelligent Review Management**
 
-AI Review Manager is a Python-based REST API designed to transform customer reviews into actionable business insights using **Artificial Intelligence (AI)** and **Natural Language Processing (NLP)**.
+AI Review Manager is a Python/FastAPI REST API project for turning customer reviews into actionable insights using large language models (LLMs). It currently supports local mock review retrieval, MongoDB connectivity checks, and **working AI analysis through Google Gemini or OpenAI** with a provider-independent interface.
 
-The application is designed to retrieve customer feedback from external data providers, analyze customer sentiment, identify praised and criticized products or service aspects, generate contextual reply suggestions, and persist structured analysis results in MongoDB.
+> **Project status:** Work in progress. AI analysis is currently available through a Python test script, not yet through a public analysis API endpoint. Automated persistence, structured-output validation, analytics, and production integrations are planned.
 
-The project emphasizes **clean code, modular architecture, maintainability, extensibility, and provider-independent integrations**.
+## Implemented Features
 
-## Key Features
-
-- **Customer Review Integration** — Retrieve and validate customer reviews through a provider-independent integration layer.
-- **Sentiment Analysis** — Classify customer feedback as positive, negative, neutral, or mixed.
-- **Keyword and Topic Extraction** — Identify relevant terms, recurring subjects, and customer concerns.
-- **Praise and Criticism Detection** — Extract products, services, and specific aspects mentioned positively or negatively.
-- **AI-Powered Reply Suggestions** — Generate contextual, personalized responses to customer feedback.
-- **MongoDB Persistence** — Store structured AI analysis results for subsequent retrieval and reporting.
-- **Review Processing Management** — Coordinate analysis workflows and prevent unnecessary duplicate processing.
-- **Customer Satisfaction Analytics** — Explore sentiment trends, frequently criticized items, and recurring positive experiences.
-- **Health Monitoring** — Provide application and MongoDB connectivity health checks.
+- **FastAPI API** with OpenAPI/Swagger documentation.
+- **100 synthetic customer reviews** in `data/reviews_mock.json`, exposed through the reviews endpoint.
+- **MongoDB connectivity** via PyMongo, including a database health check.
+- **Pluggable AI providers** through an abstract `AIProvider` contract, concrete Gemini/OpenAI adapters, and an `AIProviderFactory`.
+- **Environment-based configuration** with Pydantic Settings.
+- **External brand prompt** loaded from `app/prompts/review_analysis_prompt.md`.
+- **AI-powered review analysis** that asks for sentiment, satisfaction score, reasoning, keywords, praises, criticisms, and a suggested public reply.
+- **Token usage tracking** for input, output, and total tokens when reported by the provider.
+- **Local AI smoke test** in `test_ai.py`.
 
 ## Technology Stack
 
 | Technology | Purpose |
 |---|---|
-| Python 3.13 | Backend development |
-| FastAPI | RESTful API development and OpenAPI documentation |
-| Pydantic | Typed data models, validation, and serialization |
-| Pydantic Settings | Environment-based application configuration |
-| MongoDB | Persistent storage for review analysis results |
-| PyMongo | MongoDB database connectivity |
-| Docker | Local MongoDB development environment |
-| NLP / LLMs | AI-powered feedback analysis and reply generation |
-| JSON | Synthetic customer review dataset |
-| Postman | API testing and request collections |
-| pytest | Automated testing |
+| Python 3.13 | Backend runtime |
+| FastAPI / Uvicorn | HTTP API and OpenAPI documentation |
+| Pydantic / Pydantic Settings | Models and configuration |
+| Google Gen AI SDK | Gemini integration |
+| OpenAI Python SDK | OpenAI integration |
+| MongoDB / PyMongo | Database connectivity; planned analysis persistence |
+| Docker | Optional local MongoDB environment |
+| JSON | Synthetic review dataset |
 
-## System Architecture
-
-The application follows a layered architecture that separates external review retrieval, business logic, AI processing, and data persistence.
+## Architecture
 
 ```text
-             External Review Provider
+                          +----------------------+
+                          | FastAPI Controllers  |
+                          | health / reviews     |
+                          +----------+-----------+
+                                     |
+                     +---------------+----------------+
+                     |                                |
+                     v                                v
+              Mock Review Data                MongoDatabase
+              (100 JSON reviews)              (health / ping)
+
+                Local test_ai.py
                        |
                        v
-                ReviewApiClient
+               AIAnalysisService
+                       |
+             Load Markdown prompt
                        |
                        v
-                  FastAPI API
+               AIProviderFactory
                        |
-                       v
-             ReviewProcessingService
-                       |
-             +---------+---------+
-             |                   |
-             v                   v
-     ReviewAnalysisRepository  AIAnalysisService
-             |                   |
-             v                   +------------------+
-          MongoDB                |                  |
-             ^                   v                  v
-             |             Sentiment Analysis   Topic Detection
-             |                   |                  |
-             |                   +--------+---------+
-             |                            |
-             |                            v
-             |                   Praise / Criticism
-             |                         Extraction
-             |                            |
-             |                            v
-             |                    AI Reply Suggestion
-             |                            |
-             +----------------------------+
-                       |
-                       v
-                Stored AI Analysis
-                       |
-                       v
-               REST API / Analytics
+                AIProvider (ABC)
+                 /           \
+                v             v
+         GeminiProvider   OpenAIProvider
+                \             /
+                 v           v
+                AIProviderResponse
+           (content, model, token usage)
 ```
 
-### Architecture Principles
+**Planned processing path:** FastAPI analysis endpoint → review processing service → AI analysis → Pydantic-validated structured result → MongoDB `review_analyses` repository → reporting and analytics.
 
-- Separation of concerns
-- Layered and modular service design
-- Dependency injection
-- Strongly typed Pydantic models
-- Provider-independent data integration
-- Dedicated database access layer
-- Environment-based configuration
-- Explicit API contracts and error handling
-- Testability and extensibility
-- Reusable database connections and efficient resource management
+The AI service accepts an injected provider, making it easier to test or replace model integrations without changing the orchestration code.
 
 ## Project Structure
 
 ```text
 ai-review-manager/
 ├── app/
-│   ├── clients/
-│   │   └── review_api_client.py
-│   ├── controllers/
-│   │   ├── health_controller.py
-│   │   └── reviews_controller.py
+│   ├── clients/                # External review client layer
+│   ├── controllers/            # Health and review routes
 │   ├── core/
-│   │   ├── config.py
-│   │   └── database.py
-│   ├── models/
-│   │   ├── review.py
-│   │   ├── review_order.py
-│   │   ├── review_reply.py
-│   │   ├── reviews_response.py
-│   │   └── review_analysis.py
-│   ├── repositories/
-│   │   └── review_analysis_repository.py
+│   │   ├── config.py           # Pydantic Settings
+│   │   └── database.py         # MongoDB connection abstraction
+│   ├── models/                 # Review-related Pydantic models
+│   ├── prompts/
+│   │   └── review_analysis_prompt.md
+│   ├── providers/
+│   │   ├── base.py             # AIProvider / AIProviderResponse
+│   │   ├── factory.py          # Provider selection
+│   │   ├── gemini_provider.py
+│   │   └── openai_provider.py
 │   ├── services/
-│   │   ├── review_processing_service.py
 │   │   └── ai_analysis_service.py
 │   └── main.py
 ├── data/
 │   └── reviews_mock.json
-├── postman/
+├── test_ai.py                  # Manual integration smoke test
 ├── .env.example
-├── .gitignore
 ├── requirements.txt
-├── LICENSE
 └── README.md
 ```
 
-*The structure represents the modular application design, including components intended for AI processing and database persistence.*
+## Getting Started
 
-## MongoDB Integration
+### Prerequisites
 
-MongoDB is used as the persistence layer for AI-generated customer feedback analyses.
+- Python 3.13
+- Git
+- Docker **or** a reachable MongoDB instance
+- A Gemini API key from [Google AI Studio](https://aistudio.google.com/api-keys) or an OpenAI API key
 
-The application separates the original customer review data from the structured analysis produced by the AI processing pipeline.
+### 1. Clone and install
 
-### Data Responsibilities
-
-**External Review Data**
-
-Customer reviews are retrieved from external providers or loaded from the synthetic dataset. They include review identifiers, ratings, comments, timestamps, order information, statuses, and reply histories.
-
-**AI Analysis Data**
-
-The application is designed to persist:
-
-- Original review references
-- Sentiment classification
-- Extracted keywords
-- Praised products and service aspects
-- Criticized products and service aspects
-- AI-generated reply suggestions
-- Processing metadata and timestamps
-
-The intended MongoDB collection is `review_analyses`.
-
-### Example Analysis Document
-
-```json
-{
-  "review_id": "review-001",
-  "sentiment": "mixed",
-  "keywords": [
-    "product quality",
-    "delivery",
-    "waiting time"
-  ],
-  "praises": [
-    "Product quality"
-  ],
-  "criticisms": [
-    "Delivery delay"
-  ],
-  "suggested_reply": "Thank you for your feedback! We're glad you enjoyed the product quality, and we apologize for the delivery delay. Your feedback helps us improve our service.",
-  "processed_at": "2026-11-20T15:00:00Z"
-}
+```powershell
+git clone https://github.com/osnjunior91/ai-review-manager.git
+cd ai-review-manager
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
 ```
 
-*This example illustrates the intended persisted analysis structure.*
+On macOS/Linux, activate the environment with `source .venv/bin/activate`.
 
-## Application Configuration
+### 2. Configure environment variables
 
-Application settings are managed through **Pydantic Settings**, using environment variables and a local `.env` file.
+Copy the example configuration:
 
-Create a `.env` file based on `.env.example`:
+```powershell
+Copy-Item .env.example .env
+```
+
+For the **Gemini** provider, use:
 
 ```dotenv
 APP_NAME="AI Review Manager"
@@ -193,234 +136,169 @@ APP_DESCRIPTION="AI-powered customer review management API"
 
 MONGODB_URI=mongodb://localhost:27017
 MONGODB_DATABASE=ai_review_manager
+
+AI_PROVIDER=gemini
+AI_MODEL=gemini-3.5-flash-lite
+AI_PROMPT_PATH=app/prompts/review_analysis_prompt.md
+
+GEMINI_API_KEY=your_real_key_here
 ```
 
-Sensitive configuration values should not be committed to version control.
+> **Model availability changes.** `gemini-3.5-flash-lite` was verified in a local integration test, but check availability and quota for your own account. The repository's `.env.example` may still show an older model; use an available model in your local `.env`.
 
-## Getting Started
+To switch providers, set `AI_PROVIDER=openai`, choose an OpenAI model available to your API account, and configure `OPENAI_API_KEY`. Only the selected provider's key is required.
 
-### Prerequisites
+**Never commit `.env` or real API keys.** The two providers have separate API billing and quotas; a ChatGPT subscription does not include OpenAI API credits.
 
-- Python 3.13 or compatible version
-- Docker, or an accessible MongoDB instance
-- Git
+### 3. Start MongoDB (optional for the AI smoke test)
 
-### 1. Clone the Repository
-
-```bash
-git clone <repository-url>
-cd ai-review-manager
-```
-
-### 2. Create a Virtual Environment
-
-```bash
-python -m venv .venv
-```
-
-Activate it on Windows PowerShell:
-
-```powershell
-.\.venv\Scripts\Activate.ps1
-```
-
-### 3. Install Dependencies
-
-```bash
-python -m pip install -r requirements.txt
-```
-
-### 4. Configure Environment Variables
-
-Copy `.env.example` to `.env` and adjust the MongoDB connection settings if necessary.
-
-### 5. Start MongoDB
-
-Run MongoDB locally with Docker:
-
-```bash
-docker run -d \
-  --name ai-review-mongodb \
-  -p 127.0.0.1:27017:27017 \
-  -v ai-review-mongo-data:/data/db \
-  mongo:8
-```
-
-For Windows PowerShell, use the single-line equivalent:
+With Docker:
 
 ```powershell
 docker run -d --name ai-review-mongodb -p 127.0.0.1:27017:27017 -v ai-review-mongo-data:/data/db mongo:8
 ```
 
-### 6. Start the API
+The standalone AI smoke test does not require a database connection.
 
-```bash
+### 4. Start the API
+
+```powershell
 python -m uvicorn app.main:app --reload
 ```
 
-The API will be available at:
+- API: http://127.0.0.1:8000
+- Swagger UI: http://127.0.0.1:8000/docs
 
-`http://127.0.0.1:8000`
+### 5. Run an AI analysis
 
-Interactive API documentation:
+From the project root, with the virtual environment active and the API key configured:
 
-`http://127.0.0.1:8000/docs`
+```powershell
+python test_ai.py
+```
+
+The script sends this sample review:
+
+> O açaí estava delicioso, mas demorou muito para chegar!
+
+It prints the generated analysis text, selected model, and token usage. A successful test with Gemini classified the review as `MIXED` and assigned a satisfaction score of `6/10`.
 
 ## API Endpoints
 
-### Application Health
+### Available now
 
-| Method | Endpoint | Description |
+| Method | Endpoint | Purpose |
 |---|---|---|
-| GET | `/health` | Retrieve application health information |
-| GET | `/health/database` | Verify MongoDB connectivity |
-| GET | `/version` | Retrieve the current API version |
+| GET | `/health` | Application health |
+| GET | `/health/database` | MongoDB connectivity |
+| GET | `/version` | API version |
+| GET | `/reviews/` | Retrieve synthetic customer reviews |
 
-### Review Management
+### Planned (not yet implemented)
 
-| Method | Endpoint | Description |
+| Method | Endpoint | Purpose |
 |---|---|---|
-| GET | `/reviews/` | Retrieve paginated customer reviews |
+| POST | `/reviews/{review_id}/analyze` | Analyze a review |
+| GET | `/reviews/analyses` | List stored analyses |
+| GET | `/reviews/{review_id}/analysis` | Fetch an analysis |
+| GET | `/analytics/sentiment` | Sentiment breakdown |
+| GET | `/analytics/topics` | Frequent praise/criticism topics |
 
-### Planned AI Processing and Analytics
+## AI Analysis
 
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | `/reviews/{review_id}/analyze` | Process a review using AI |
-| GET | `/reviews/analyses` | Retrieve stored AI analysis results |
-| GET | `/reviews/{review_id}/analysis` | Retrieve the analysis of a specific review |
-| GET | `/analytics/sentiment` | Retrieve sentiment distribution |
-| GET | `/analytics/topics` | Retrieve frequently praised and criticized topics |
+The brand-specific prompt currently describes **Nuvem Roxa**, a fictional Brazilian açaí and ice cream shop. It instructs the model to classify customer feedback objectively and generate concise, empathetic public replies without inventing facts or promises.
 
-## Health Monitoring
+The prompt requests these fields:
 
-The API provides separate health endpoints for application availability and database connectivity.
+| Field | Meaning |
+|---|---|
+| `sentiment` | `POSITIVE`, `NEGATIVE`, `NEUTRAL`, or `MIXED` |
+| `satisfaction_score` | Estimated score from 1 to 10 |
+| `score_reason` | Short justification |
+| `keywords` | Relevant terms |
+| `praises` | Positive aspects |
+| `criticisms` | Negative aspects |
+| `suggested_reply` | Suggested customer-facing reply |
 
-### Application Health
-
-`GET /health`
-
-Example response:
-
-```json
-{
-  "status": "healthy",
-  "service": "AI Review Manager",
-  "description": "AI-powered customer review management API",
-  "version": "1.0.0"
-}
-```
-
-### MongoDB Health
-
-`GET /health/database`
-
-Successful response:
+Example of a model-generated response:
 
 ```json
 {
-  "status": "healthy",
-  "database": "mongodb",
-  "connection": "connected"
+  "sentiment": "MIXED",
+  "satisfaction_score": 6,
+  "score_reason": "O cliente elogiou o sabor do açaí, mas criticou o tempo de espera para a entrega.",
+  "keywords": ["açaí", "delicioso", "demora", "entrega"],
+  "praises": ["sabor do açaí"],
+  "criticisms": ["demora na entrega"],
+  "suggested_reply": "Que bom que você gostou do nosso açaí! 💜 Sentimos muito pela demora na entrega e agradecemos pelo feedback."
 }
 ```
 
-If MongoDB is unavailable, the database health endpoint returns HTTP `503 Service Unavailable`.
+**Current limitation:** The provider returns this JSON as **text** in `AIProviderResponse.content`. Schema-enforced structured outputs and Pydantic validation of the model response are **not implemented yet**. Suggested replies should be reviewed before publication.
 
-This separation allows the application to distinguish API availability from database readiness.
+### Provider Contract
 
-## Synthetic Review Dataset
+`AIProvider.generate(instructions, content)` returns:
 
-The project includes **100 synthetic customer reviews** designed to simulate realistic feedback scenarios.
-
-The dataset contains different ratings, comments, review statuses, timestamps, associated orders, and reply histories.
-
-Synthetic data offers several advantages:
-
-- **Privacy:** No real customer information is required.
-- **Reproducibility:** Consistent test scenarios across development environments.
-- **Controlled Testing:** Positive, negative, neutral, and mixed feedback scenarios.
-- **Independence:** No external review platform credentials are required for local testing.
-
-All review data is fictional and used exclusively for development, testing, and demonstration purposes.
-
-## AI-Powered Review Analysis
-
-The intended AI processing workflow transforms unstructured customer feedback into structured business information.
-
-### Example Customer Review
-
-```json
-{
-  "id": "review-001",
-  "score": 3,
-  "comment": "The product quality was excellent, but delivery took much longer than expected."
-}
+```python
+@dataclass
+class AIProviderResponse:
+    content: str
+    input_tokens: int | None
+    output_tokens: int | None
+    total_tokens: int | None
+    model: str
 ```
 
-### Example Analysis Result
+Provider implementations adapt their respective SDK usage metadata to this common response. Token counts may be `None` if unavailable, and some models may report additional internal reasoning tokens.
 
-```json
-{
-  "review_id": "review-001",
-  "sentiment": "mixed",
-  "keywords": [
-    "product quality",
-    "delivery time"
-  ],
-  "praises": [
-    "Product quality"
-  ],
-  "criticisms": [
-    "Delivery delay"
-  ],
-  "suggested_reply": "Thank you for your feedback! We're glad you enjoyed the product quality, and we apologize for the delivery delay. Your feedback helps us improve our service."
-}
-```
+## Token Optimization
 
-*This example demonstrates the intended AI-generated output. AI processing and automated analysis persistence are part of the planned application capabilities.*
+A local before/after test used the **same review and model** with a shorter system prompt:
 
-## Engineering Highlights
+| Metric | Original prompt | Optimized prompt | Reduction |
+|---|---:|---:|---:|
+| Input tokens | 1,418 | 418 | 70.5% |
+| Output tokens | 207 | 176 | 15.0% |
+| **Total tokens** | **1,625** | **594** | **63.4%** |
 
-### Backend Engineering
+These are observations from **one test case**, not a guaranteed average. Input tokens decreased primarily by removing repetitive prompt instructions. Future evaluations should compare both token consumption and response quality across a larger review set.
 
-RESTful API development with Python and FastAPI, strongly typed Pydantic models, structured responses, and environment-based configuration.
+The current integration tracks usage but **does not calculate prices or persist usage records**. API prices, free-tier quotas, and model availability are subject to provider changes.
 
-### Database Integration
+## MongoDB and Data Roadmap
 
-MongoDB connectivity using PyMongo, with a dedicated database abstraction and health monitoring.
+MongoDB connectivity is implemented, but automated analysis persistence is planned. The intended `review_analyses` collection will hold the original review reference, validated analysis fields, provider/model metadata, timestamps, and token usage.
 
-### Software Architecture
+Planned safeguards include avoiding duplicate processing, tracking prompt/model versions, and using stored analyses when a review has already been processed under the same configuration.
 
-Separation between controllers, data providers, services, models, and repositories to support independent evolution of the application components.
+## Roadmap
 
-### AI Integration
+- [x] FastAPI foundation and health endpoints
+- [x] MongoDB connectivity health check
+- [x] Synthetic review dataset and reviews endpoint
+- [x] Provider-independent OpenAI and Gemini adapters
+- [x] Markdown-based AI prompt
+- [x] AI analysis smoke test
+- [x] Input/output/total token tracking
+- [x] Initial prompt optimization
+- [ ] Schema-enforced structured outputs with Pydantic
+- [ ] Automated unit and integration tests
+- [ ] Review analysis API endpoint
+- [ ] MongoDB analysis repository and persistence
+- [ ] Idempotent processing and caching
+- [ ] Token cost estimation and per-client usage reporting
+- [ ] Sentiment/topic analytics
+- [ ] External review provider integration
 
-A modular design for sentiment classification, keyword extraction, aspect-based feedback analysis, and contextual reply generation.
+## Security and Privacy
 
-### Data Privacy and Testing
-
-Synthetic datasets enable reproducible testing and demonstrations without exposing real customer information.
-
-## Use Cases
-
-AI Review Manager can be adapted to:
-
-- Customer experience monitoring
-- Product feedback analysis
-- Customer support assistance
-- Service quality evaluation
-- Brand reputation analysis
-- Customer satisfaction reporting
-- Automated feedback classification
-- Business intelligence and trend detection
+Use synthetic data during development, keep API keys out of source control, and evaluate provider data-handling terms before sending real customer reviews. Model-generated replies can be inaccurate or imply commitments that the business has not made; human review is recommended before publishing.
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+MIT License. See `LICENSE` for details.
 
 ---
 
-**AI Review Manager**
-
-*Transforming customer feedback into intelligent business insights.*
+**AI Review Manager** — *Transforming customer feedback into intelligent business insights.*
