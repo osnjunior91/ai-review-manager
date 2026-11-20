@@ -1,0 +1,1898 @@
+{
+  "page": 1,
+  "size": 100,
+  "reviews": [
+    {
+      "id": "ad368c68-bc3c-5504-9ffa-8f115b0c5ad2",
+      "score": 5,
+      "previousScore": 4,
+      "hasScoreChanged": true,
+      "status": "ANSWERED",
+      "comment": "Açaí maravilhoso, bem cremoso e gelado. Chegou perfeito! Foi a primeira vez que pedi nessa unidade. A combinação de sabor, apresentação e cuidado com o pedido fez diferença para mim.",
+      "replies": [
+        {
+          "createdAt": "2026-11-19T12:24:41.697Z",
+          "text": "Agradecemos pela avaliação e pelo carinho! Esperamos atender você novamente em breve.",
+          "from": "MERCHANT"
+        }
+      ],
+      "createdAt": "2026-11-19T09:12:41.697Z",
+      "order": {
+        "id": "4173b5c3-15fa-5057-96c8-68fa2bd40424",
+        "shortId": "3721",
+        "createdAt": "2026-11-19T07:38:41.697Z"
+      },
+      "surveyId": "ec54113a-b88d-5572-bc89-7d4a62c642ca",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "bdf987a9-60a8-524c-b9d7-2ead23dfcf87",
+      "score": 1,
+      "previousScore": 1,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Pedi sem um complemento e veio justamente com ele. Além disso, demorou muito para chegar.",
+      "replies": [],
+      "createdAt": "2026-11-19T00:16:41.697Z",
+      "order": {
+        "id": "afb7acd2-4f0e-5229-8af1-cc46a9e9a45d",
+        "shortId": "9856",
+        "createdAt": "2026-11-18T23:02:41.697Z"
+      },
+      "surveyId": "f02b360f-f1ff-5ec8-8e9f-6893c5755366",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "0d97ca2a-7900-55f6-98ae-a07a9fb214d8",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Um dos melhores açaís que pedi ultimamente. Tudo fresquinho e bem montado.",
+      "replies": [],
+      "createdAt": "2026-08-28T06:25:41.697Z",
+      "order": {
+        "id": "f6f2727b-9b4c-53b2-8860-5e68224ba550",
+        "shortId": "9749",
+        "createdAt": "2026-08-28T04:56:41.697Z"
+      },
+      "surveyId": "12e9c7dd-83c7-585c-a616-5465e27974fe",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "2a9a9f9b-9b20-5cf4-98b4-6d7c4dd39dcf",
+      "score": 1,
+      "previousScore": 1,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Pedido chegou incompleto. Faltaram os acompanhamentos e não consegui resolver na hora. Já tinha pedido antes e resolvi dar outra chance.",
+      "replies": [],
+      "createdAt": "2026-09-28T21:34:41.697Z",
+      "order": {
+        "id": "13abca82-7a37-5469-9df7-f0fb0fea9419",
+        "shortId": "6336",
+        "createdAt": "2026-09-28T20:28:41.697Z"
+      },
+      "surveyId": "f0acceaa-4b36-5192-b77b-7d0596f3e08f",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "14ea58f5-2f60-55ee-92ad-c2618dddf50c",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Açaí consistente, frutas frescas e boa apresentação. Faltou apenas separar a granola.",
+      "replies": [],
+      "createdAt": "2026-09-07T00:50:41.697Z",
+      "order": {
+        "id": "bea468bc-f863-595c-9b71-cd961186f839",
+        "shortId": "1614",
+        "createdAt": "2026-09-07T00:12:41.697Z"
+      },
+      "surveyId": "ffe4bfbd-fc4c-58ec-baf9-9a0fe53f10c0",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "4ad13c67-7784-50d7-bc3a-1ed924340682",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Pedido chegou organizado e sem vazamentos. O sabor é ótimo, mas o preço poderia ser um pouco melhor.",
+      "replies": [],
+      "createdAt": "2026-09-12T13:13:41.697Z",
+      "order": {
+        "id": "4d073d45-598b-510a-aa3d-37b527b657c4",
+        "shortId": "2025",
+        "createdAt": "2026-09-12T12:01:41.697Z"
+      },
+      "surveyId": "5011429e-c775-528d-a3a1-05f40ebcccb7",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "a7d5e0c2-9fc4-5b77-8791-a42730ea1ff7",
+      "score": 2,
+      "previousScore": 2,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "A entrega foi cordial, só que o produto chegou menos gelado do que deveria. O pedido era para compartilhar em casa.",
+      "replies": [],
+      "createdAt": "2026-10-01T01:24:41.697Z",
+      "order": {
+        "id": "506d1202-ec9e-5d0a-857d-7cd1540811f3",
+        "shortId": "4976",
+        "createdAt": "2026-10-01T00:17:41.697Z"
+      },
+      "surveyId": "5bd3c951-9b40-5b82-a301-71c17ae9b438",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "318f0c7b-7007-568b-a16b-cca9b2dddbd8",
+      "score": 2,
+      "previousScore": 2,
+      "hasScoreChanged": false,
+      "status": "ANSWERED",
+      "comment": "Pedi para enviar um item separado e a observação não foi seguida. Isso atrapalhou bastante.",
+      "replies": [
+        {
+          "createdAt": "2026-10-31T17:56:41.697Z",
+          "text": "Sentimos muito pela experiência relatada. Vamos revisar os pontos mencionados com nossa equipe. Obrigado pelo retorno.",
+          "from": "MERCHANT"
+        }
+      ],
+      "createdAt": "2026-10-31T14:44:41.697Z",
+      "order": {
+        "id": "2247ee7a-a2d5-52e3-ab40-43d03c41faa0",
+        "shortId": "6418",
+        "createdAt": "2026-10-31T13:16:41.697Z"
+      },
+      "surveyId": "3f9f2630-16b5-5361-b421-22ff14b83a7b",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "1e3c7283-3172-56be-860a-d656673dba35",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Açaí bem saboroso e chegou geladinho. Só melhoraria a quantidade de complementos.",
+      "replies": [],
+      "createdAt": "2026-08-30T02:18:41.697Z",
+      "order": {
+        "id": "d5396794-b108-5a1f-9973-2056667c13b6",
+        "shortId": "5689",
+        "createdAt": "2026-08-30T00:42:41.697Z"
+      },
+      "surveyId": "70b5fbf5-ecc1-5672-b1a7-06b33be678ca",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "d9af0a45-b087-50a4-8086-33e2e941198b",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Gostei bastante da textura e do sabor. A entrega atrasou alguns minutos, mas valeu a pena. Escolhi a opção pensando em um lanche depois do trabalho. A combinação de sabor, apresentação e cuidado com o pedido fez diferença para mim.",
+      "replies": [],
+      "createdAt": "2026-10-07T07:06:41.697Z",
+      "order": {
+        "id": "8fcb92de-ee93-585f-bc5e-17f0e3b01b54",
+        "shortId": "8587",
+        "createdAt": "2026-10-07T06:35:41.697Z"
+      },
+      "surveyId": "c63e3ad4-242b-5836-98eb-fd00e4d96023",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "ebee1cf2-4cd0-5905-9750-c9b3985123e9",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Boa experiência! Embalagem firme e pedido correto. Poderiam mandar mais guardanapos.",
+      "replies": [],
+      "createdAt": "2026-09-11T18:52:41.697Z",
+      "order": {
+        "id": "4ecbdb14-4be5-59c7-8e61-f91f6a2791be",
+        "shortId": "8148",
+        "createdAt": "2026-09-11T17:32:41.697Z"
+      },
+      "surveyId": "41666271-25b0-5b24-8810-0559fa91c938",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "09e1e88a-99b2-5ff2-adcc-5c564cb0a977",
+      "score": 5,
+      "previousScore": 4,
+      "hasScoreChanged": true,
+      "status": "CREATED",
+      "comment": "Entrega rápida, pedido certinho e complementos deliciosos. Recomendo!",
+      "replies": [],
+      "createdAt": "2026-10-12T17:40:41.697Z",
+      "order": {
+        "id": "0e1956f2-f196-572f-b51b-4f60a4b88a92",
+        "shortId": "7759",
+        "createdAt": "2026-10-12T16:53:41.697Z"
+      },
+      "surveyId": "6b7fcd64-6434-5f65-852a-cf377ace9ea0",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "fe714d84-0296-54a6-8bb5-e5849b9f0231",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "O sorvete estava saboroso, embora tenha chegado um pouco mole. Pedi no fim da tarde, quando estava bastante calor.",
+      "replies": [],
+      "createdAt": "2026-10-21T05:59:41.697Z",
+      "order": {
+        "id": "0e767acb-d83d-52a9-a14d-5cd23d8399a4",
+        "shortId": "1564",
+        "createdAt": "2026-10-21T04:23:41.697Z"
+      },
+      "surveyId": "c4fdef63-7776-54da-afdf-34c92a9036a5",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "686a604f-9b93-52ec-9ec9-71653f1f7ac7",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Pedido chegou organizado e sem vazamentos. O sabor é ótimo, mas o preço poderia ser um pouco melhor.",
+      "replies": [],
+      "createdAt": "2026-10-06T19:08:41.697Z",
+      "order": {
+        "id": "0ccccfb3-963b-5d33-93b0-869cd125f3d5",
+        "shortId": "3757",
+        "createdAt": "2026-10-06T18:41:41.697Z"
+      },
+      "surveyId": "6014b8b8-f59d-5bae-a135-3b068dadbeb7",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "a140b4e0-a664-5d03-9b0f-d3c41e7bceeb",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "ANSWERED",
+      "comment": "Muito bom! A montagem veio caprichada e o atendimento foi atencioso.",
+      "replies": [
+        {
+          "createdAt": "2026-11-15T02:44:41.697Z",
+          "text": "Agradecemos pela avaliação e pelo carinho! Esperamos atender você novamente em breve.",
+          "from": "MERCHANT"
+        }
+      ],
+      "createdAt": "2026-11-14T23:32:41.697Z",
+      "order": {
+        "id": "619eb299-9c3c-5dd6-955c-665f15ad88d2",
+        "shortId": "7933",
+        "createdAt": "2026-11-14T22:40:41.697Z"
+      },
+      "surveyId": "62ac661a-af35-5cd7-a5ce-924cef898e56",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "eb599044-e5a1-55bf-b9b0-a0aaa08cb3d7",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Pedi para dividir os complementos e veio exatamente como solicitado. Atendimento excelente. A observação que deixei no aplicativo era importante para mim.",
+      "replies": [],
+      "createdAt": "2026-10-19T23:31:41.697Z",
+      "order": {
+        "id": "e7a0e3ee-c282-5a7a-998d-cafc6e0c7ad8",
+        "shortId": "5461",
+        "createdAt": "2026-10-19T22:43:41.697Z"
+      },
+      "surveyId": "c5391767-1409-523c-ab74-84dc73cb579a",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "751bcada-ed77-5c87-9602-739eb3ff3378",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Açaí maravilhoso, bem cremoso e gelado. Chegou perfeito!",
+      "replies": [],
+      "createdAt": "2026-09-03T02:26:41.697Z",
+      "order": {
+        "id": "33a945fc-d6d8-5a1a-b621-9a02fd7419b4",
+        "shortId": "1416",
+        "createdAt": "2026-09-03T00:58:41.697Z"
+      },
+      "surveyId": "995c9c75-bba6-5803-a6b4-4817a09db4cb",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "e6c530df-e317-5fe2-9ce2-a9ce8045284e",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Gostei bastante da textura e do sabor. A entrega atrasou alguns minutos, mas valeu a pena.",
+      "replies": [],
+      "createdAt": "2026-08-20T10:17:41.697Z",
+      "order": {
+        "id": "cebf1e37-7962-5f96-943c-b06a1463a9d0",
+        "shortId": "4800",
+        "createdAt": "2026-08-20T09:00:41.697Z"
+      },
+      "surveyId": "cb0a31a7-ce7f-5a48-92d6-eafcd944f8d7",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "2662f1e6-66af-5c82-8e3a-3f2ecbfbfad4",
+      "score": 1,
+      "previousScore": 1,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Infelizmente veio com gosto estranho e textura muito aguada. Não correspondeu ao que eu esperava. O que mais pesou na minha avaliação foi a experiência da entrega. Espero que a loja reveja esse ponto, porque faz diferença na experiência de quem pede pelo aplicativo.",
+      "replies": [],
+      "createdAt": "2026-08-25T03:08:41.697Z",
+      "order": {
+        "id": "6c24008b-b3e7-5c7c-8817-27ed62593c61",
+        "shortId": "3003",
+        "createdAt": "2026-08-25T02:33:41.697Z"
+      },
+      "surveyId": "062b3b90-cfb2-5808-97c2-39057ed3d40e",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "0619b13b-d4c4-5d10-b67c-444949d4a8fb",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Entrega rápida, pedido certinho e complementos deliciosos. Recomendo!",
+      "replies": [],
+      "createdAt": "2026-09-11T05:47:41.697Z",
+      "order": {
+        "id": "3933dd4c-a4cc-5002-931e-ef10b3820f74",
+        "shortId": "9021",
+        "createdAt": "2026-09-11T05:07:41.697Z"
+      },
+      "surveyId": "e0d04926-bdb3-563c-83d0-da7815b20203",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "bc147705-a939-5cf9-a03a-21ea62449c5e",
+      "score": 2,
+      "previousScore": 2,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Gostei da ideia do pedido, mas faltou capricho na montagem e os ingredientes ficaram todos misturados.",
+      "replies": [],
+      "createdAt": "2026-10-14T20:20:41.697Z",
+      "order": {
+        "id": "27fe4234-f56f-5405-83f1-c2b99c145bd8",
+        "shortId": "2631",
+        "createdAt": "2026-10-14T19:32:41.697Z"
+      },
+      "surveyId": "a4c71156-34d4-5795-95e2-32849ddf47a2",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "f26adf46-6c3b-5e16-b0f3-9458becfda3f",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "ANSWERED",
+      "comment": "Pedido chegou organizado e sem vazamentos. O sabor é ótimo, mas o preço poderia ser um pouco melhor. Minha expectativa era receber algo bem gelado e com boa consistência.",
+      "replies": [
+        {
+          "createdAt": "2026-11-17T13:49:41.697Z",
+          "text": "Agradecemos pela avaliação e pelo carinho! Esperamos atender você novamente em breve.",
+          "from": "MERCHANT"
+        }
+      ],
+      "createdAt": "2026-11-17T10:37:41.697Z",
+      "order": {
+        "id": "9e910349-277a-50ca-8ed7-9a259ba13ddb",
+        "shortId": "5471",
+        "createdAt": "2026-11-17T09:33:41.697Z"
+      },
+      "surveyId": "da032723-890b-58e2-8476-07463c5a4a1b",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "35c29a76-d1e9-5ecc-b1e0-b1b0dd2f7d0c",
+      "score": 1,
+      "previousScore": 1,
+      "hasScoreChanged": true,
+      "status": "CREATED",
+      "comment": "A quantidade pareceu bem menor do que a esperada e o produto veio mal acondicionado.",
+      "replies": [],
+      "createdAt": "2026-08-31T23:48:41.697Z",
+      "order": {
+        "id": "f163e7cd-5f45-512a-aa6b-4a728db464b6",
+        "shortId": "3143",
+        "createdAt": "2026-08-31T22:31:41.697Z"
+      },
+      "surveyId": "b9e3f61b-de65-5630-a3c8-9c9e71474fb6",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "94584b17-7fdb-528d-b2a3-295c1912c9a0",
+      "score": 2,
+      "previousScore": 2,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Pedi para enviar um item separado e a observação não foi seguida. Isso atrapalhou bastante.",
+      "replies": [],
+      "createdAt": "2026-10-21T20:41:41.697Z",
+      "order": {
+        "id": "af94b066-23b0-51f2-a30c-b499a8e06d65",
+        "shortId": "6268",
+        "createdAt": "2026-10-21T19:28:41.697Z"
+      },
+      "surveyId": "d8065c7e-86ef-5548-a71c-0adbbdb59f06",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "d508c3a4-150a-563b-aec6-fb109bf932b3",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Açaí bem saboroso e chegou geladinho. Só melhoraria a quantidade de complementos. Achei a combinação interessante, principalmente pela variedade de texturas.",
+      "replies": [],
+      "createdAt": "2026-08-28T07:04:41.697Z",
+      "order": {
+        "id": "8214ae1e-5374-516e-8e30-c833dce0a671",
+        "shortId": "9924",
+        "createdAt": "2026-08-28T05:32:41.697Z"
+      },
+      "surveyId": "553ce365-4071-5e11-a58f-2d181f85dc66",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "afa373bb-0979-5632-a10e-2e498bc133df",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Excelente! Embalagem impecável, porção generosa e sabor muito bom.",
+      "replies": [],
+      "createdAt": "2026-09-02T18:55:41.697Z",
+      "order": {
+        "id": "ad069363-5c63-5a4a-91af-bf22a2851f4f",
+        "shortId": "3556",
+        "createdAt": "2026-09-02T17:25:41.697Z"
+      },
+      "surveyId": "a2fc802b-39c7-5add-82b1-1646c15679ee",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "85782ee6-45db-59f3-9195-06902ac4d2b6",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Um dos melhores açaís que pedi ultimamente. Tudo fresquinho e bem montado.",
+      "replies": [],
+      "createdAt": "2026-11-02T10:45:41.697Z",
+      "order": {
+        "id": "616d887e-6836-5c00-8b7e-c04495f44fcd",
+        "shortId": "2064",
+        "createdAt": "2026-11-02T10:02:41.697Z"
+      },
+      "surveyId": "52cfd469-42d4-53f2-a306-9461727c184e",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "2ef63b40-cf0b-57cd-ada9-70f57ddcad05",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Entrega dentro do prazo e pedido correto. Nada extraordinário, mas atende bem. Comparei com outros pedidos que costumo fazer na região. A combinação de sabor, apresentação e cuidado com o pedido fez diferença para mim.",
+      "replies": [],
+      "createdAt": "2026-10-23T21:03:41.697Z",
+      "order": {
+        "id": "aa2e6f37-c154-5ecc-bac7-f954b50b6e20",
+        "shortId": "2816",
+        "createdAt": "2026-10-23T19:35:41.697Z"
+      },
+      "surveyId": "7d744f0c-3abc-5e8c-bf1b-64f1123160fa",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "a252d6e7-99a8-5797-b391-9214d8b23c35",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "ANSWERED",
+      "comment": "O sorvete estava saboroso, embora tenha chegado um pouco mole.",
+      "replies": [
+        {
+          "createdAt": "2026-11-10T03:27:41.697Z",
+          "text": "Obrigado pelo feedback! Vamos considerar sua sugestão para melhorar nossos pedidos.",
+          "from": "MERCHANT"
+        }
+      ],
+      "createdAt": "2026-11-10T00:15:41.697Z",
+      "order": {
+        "id": "d8fe7617-9d6e-5123-8086-b4e6e6528729",
+        "shortId": "2007",
+        "createdAt": "2026-11-09T23:29:41.697Z"
+      },
+      "surveyId": "b101661d-fa0b-5731-b27e-bb78a6328c15",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "47c5bf8f-1e69-5dce-a83d-62cfad5101f6",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Experiência mediana: o açaí estava bom, mas a apresentação poderia melhorar.",
+      "replies": [],
+      "createdAt": "2026-08-29T21:12:41.697Z",
+      "order": {
+        "id": "997284a1-39e4-566e-a583-a2f33cb11c93",
+        "shortId": "8539",
+        "createdAt": "2026-08-29T20:04:41.697Z"
+      },
+      "surveyId": "fd8f6bae-ac80-575c-aa51-d1055883c26c",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "462edeb8-3700-52f7-a2bd-3eb9e231a4b4",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Gostei da combinação, só achei doce demais para meu paladar. Foi a primeira vez que pedi nessa unidade.",
+      "replies": [],
+      "createdAt": "2026-09-26T01:22:41.697Z",
+      "order": {
+        "id": "8ad4828b-ccf0-5970-84bb-3013adb1c1dc",
+        "shortId": "2364",
+        "createdAt": "2026-09-25T23:56:41.697Z"
+      },
+      "surveyId": "658d2ae4-6cc5-5fb1-b4e5-d1853883dfb8",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "a19e7b38-0d69-5303-91dd-1d62558410ff",
+      "score": 2,
+      "previousScore": 2,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Pedi para enviar um item separado e a observação não foi seguida. Isso atrapalhou bastante.",
+      "replies": [],
+      "createdAt": "2026-09-05T05:03:41.697Z",
+      "order": {
+        "id": "bb94511c-269d-55d5-999f-074b938f70a2",
+        "shortId": "2076",
+        "createdAt": "2026-09-05T04:00:41.697Z"
+      },
+      "surveyId": "ed72c20f-65b7-5a28-8077-c8f81a5fdc12",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "4e568677-dd58-5a71-b829-917d0f5fed99",
+      "score": 1,
+      "previousScore": 1,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "O açaí chegou completamente derretido e a embalagem vazou dentro da sacola. Não consegui aproveitar quase nada.",
+      "replies": [],
+      "createdAt": "2026-11-15T23:09:41.697Z",
+      "order": {
+        "id": "8a2cff57-2695-5557-b08e-73a44992941a",
+        "shortId": "4254",
+        "createdAt": "2026-11-15T22:38:41.697Z"
+      },
+      "surveyId": "fa96143b-07da-59a0-9e20-bab4f00ae46a",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "b3ee9b0f-71d3-5aa6-8824-9d20f094019b",
+      "score": 1,
+      "previousScore": 1,
+      "hasScoreChanged": true,
+      "status": "CREATED",
+      "comment": "Pedi sem um complemento e veio justamente com ele. Além disso, demorou muito para chegar. Já tinha pedido antes e resolvi dar outra chance.",
+      "replies": [],
+      "createdAt": "2026-09-30T21:32:41.697Z",
+      "order": {
+        "id": "9421dcbf-432a-5ff1-a1db-3154b01d4f31",
+        "shortId": "9023",
+        "createdAt": "2026-09-30T20:27:41.697Z"
+      },
+      "surveyId": "b0506bea-d080-566d-82db-3083886b65af",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "0e5d5a53-f19c-5786-8f1a-a9b24ca3be55",
+      "score": 1,
+      "previousScore": 1,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Infelizmente veio com gosto estranho e textura muito aguada. Não correspondeu ao que eu esperava.",
+      "replies": [],
+      "createdAt": "2026-09-01T21:32:41.697Z",
+      "order": {
+        "id": "3f1be8aa-0f2b-5dfe-a655-b2130e7a8eeb",
+        "shortId": "6266",
+        "createdAt": "2026-09-01T21:05:41.697Z"
+      },
+      "surveyId": "0f6c4531-5020-544d-8841-89d1fe953a21",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "6b2e7bd1-55f0-5979-b313-4c08f26f72af",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "ANSWERED",
+      "comment": "Entrega rápida, pedido certinho e complementos deliciosos. Recomendo!",
+      "replies": [
+        {
+          "createdAt": "2026-09-28T04:26:41.697Z",
+          "text": "Agradecemos pela avaliação e pelo carinho! Esperamos atender você novamente em breve.",
+          "from": "MERCHANT"
+        }
+      ],
+      "createdAt": "2026-09-28T01:14:41.697Z",
+      "order": {
+        "id": "c1275133-4448-5782-8fa9-7ba80c0e4652",
+        "shortId": "8301",
+        "createdAt": "2026-09-28T00:16:41.697Z"
+      },
+      "surveyId": "155d1a2d-2260-551d-a45a-7ce5c3781f04",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "ac9cf32d-f540-5ec8-bc42-3a987917b850",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Sorvete muito gostoso, textura ótima e apresentação caprichada. O pedido era para compartilhar em casa. A combinação de sabor, apresentação e cuidado com o pedido fez diferença para mim.",
+      "replies": [],
+      "createdAt": "2026-10-25T11:47:41.697Z",
+      "order": {
+        "id": "cc5b2a21-a987-58b6-825e-dc350ab8d06f",
+        "shortId": "2688",
+        "createdAt": "2026-10-25T10:35:41.697Z"
+      },
+      "surveyId": "36cd7097-acf5-5f24-bf51-5002c9373b78",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "3574c711-20ed-5880-8f4a-68f666333457",
+      "score": 2,
+      "previousScore": 2,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Achei caro para a quantidade recebida. O sabor não foi ruim, mas esperava mais.",
+      "replies": [],
+      "createdAt": "2026-10-21T21:51:41.697Z",
+      "order": {
+        "id": "fa68132c-1087-5856-927f-55ac92c5eaca",
+        "shortId": "1475",
+        "createdAt": "2026-10-21T21:14:41.697Z"
+      },
+      "surveyId": "b5e3f766-b905-5b12-804c-46ac7956709e",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "d139d205-1bb2-55b9-a58f-fcea04e8596f",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Muito bom! A montagem veio caprichada e o atendimento foi atencioso.",
+      "replies": [],
+      "createdAt": "2026-08-17T19:02:41.697Z",
+      "order": {
+        "id": "6a938bbb-c811-597c-9904-226bc3420309",
+        "shortId": "8354",
+        "createdAt": "2026-08-17T17:55:41.697Z"
+      },
+      "surveyId": "d1d0f156-e9d6-5884-85c0-d2733985a468",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "05b3043c-b556-5e70-8ce7-1056bf09c739",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Gostei da sobremesa, principalmente do equilíbrio entre o açaí e os acompanhamentos. Escolhi a opção pensando em um lanche depois do trabalho.",
+      "replies": [],
+      "createdAt": "2026-09-13T23:52:41.697Z",
+      "order": {
+        "id": "bb336de2-af43-5517-bb43-56194e120789",
+        "shortId": "7260",
+        "createdAt": "2026-09-13T23:25:41.697Z"
+      },
+      "surveyId": "6ec4de34-f500-5651-9ce5-8588a3123198",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "c3370c36-a923-5596-b925-a7aa4de39faa",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Açaí maravilhoso, bem cremoso e gelado. Chegou perfeito!",
+      "replies": [],
+      "createdAt": "2026-11-16T06:15:41.697Z",
+      "order": {
+        "id": "a1e2e76d-f00c-5637-b4e0-88abea11bca6",
+        "shortId": "3601",
+        "createdAt": "2026-11-16T04:37:41.697Z"
+      },
+      "surveyId": "0ce92a07-b824-557a-86de-add19a9c3aed",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "aaa022ab-e7d1-5c30-9847-c1a1d6dc382b",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Bom no geral. A embalagem segurou bem, só achei a porção pequena pelo valor.",
+      "replies": [],
+      "createdAt": "2026-10-17T09:45:41.697Z",
+      "order": {
+        "id": "6b960253-2a13-5264-9940-a8d0870ff298",
+        "shortId": "3090",
+        "createdAt": "2026-10-17T08:43:41.697Z"
+      },
+      "surveyId": "434c2e0e-c4c7-55d1-ab3c-2e0a21f41a45",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "6b431515-49b9-5263-9dca-30979889fb8a",
+      "score": 1,
+      "previousScore": 1,
+      "hasScoreChanged": false,
+      "status": "ANSWERED",
+      "comment": "Infelizmente veio com gosto estranho e textura muito aguada. Não correspondeu ao que eu esperava. Pedi no fim da tarde, quando estava bastante calor.",
+      "replies": [
+        {
+          "createdAt": "2026-08-28T15:08:41.697Z",
+          "text": "Sentimos muito pela experiência relatada. Vamos revisar os pontos mencionados com nossa equipe. Obrigado pelo retorno.",
+          "from": "MERCHANT"
+        }
+      ],
+      "createdAt": "2026-08-28T11:56:41.697Z",
+      "order": {
+        "id": "b2a665b7-4f0b-514a-8e8d-bac8c6e3a002",
+        "shortId": "3687",
+        "createdAt": "2026-08-28T11:27:41.697Z"
+      },
+      "surveyId": "9596fbd9-2216-5c3e-a7b5-1548303e3163",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "853770da-38d5-5577-9e09-b87aa86eee09",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Entrega rápida, pedido certinho e complementos deliciosos. Recomendo!",
+      "replies": [],
+      "createdAt": "2026-09-16T20:49:41.697Z",
+      "order": {
+        "id": "26f58ead-5c05-5262-a9cb-b66ccf08f2f7",
+        "shortId": "7458",
+        "createdAt": "2026-09-16T19:23:41.697Z"
+      },
+      "surveyId": "bb96036d-7b9f-540a-89d9-5d8186c0df80",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "a0501fa5-6600-59a4-9a33-181c49f23fb1",
+      "score": 4,
+      "previousScore": 3,
+      "hasScoreChanged": true,
+      "status": "CREATED",
+      "comment": "Açaí consistente, frutas frescas e boa apresentação. Faltou apenas separar a granola.",
+      "replies": [],
+      "createdAt": "2026-09-19T10:34:41.697Z",
+      "order": {
+        "id": "35796601-e159-54eb-ae46-9fb1f824f9c6",
+        "shortId": "9850",
+        "createdAt": "2026-09-19T09:07:41.697Z"
+      },
+      "surveyId": "0018846d-c901-5ddf-b043-f16e0e0d7569",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "dc347bcf-1b66-514e-9b78-9b6134a4183f",
+      "score": 2,
+      "previousScore": 2,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Achei caro para a quantidade recebida. O sabor não foi ruim, mas esperava mais. A observação que deixei no aplicativo era importante para mim. Espero que a loja reveja esse ponto, porque faz diferença na experiência de quem pede pelo aplicativo.",
+      "replies": [],
+      "createdAt": "2026-11-09T07:08:41.697Z",
+      "order": {
+        "id": "dc0210c7-b904-5c60-901a-98bdfc2bc6ca",
+        "shortId": "1606",
+        "createdAt": "2026-11-09T06:10:41.697Z"
+      },
+      "surveyId": "f66f5df9-6558-5f9f-9600-361a2d4f77d3",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "ee0a9b97-5970-5ca7-824b-5ee413d05087",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "O açaí chegou firme, sem derreter, e os ingredientes estavam muito bons. Nota dez!",
+      "replies": [],
+      "createdAt": "2026-11-07T01:10:41.697Z",
+      "order": {
+        "id": "f72e3b29-2174-5978-b66f-22c77a3635a0",
+        "shortId": "7871",
+        "createdAt": "2026-11-06T23:42:41.697Z"
+      },
+      "surveyId": "87cf275f-c5e1-58ba-954c-1bb682dcd521",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "917240de-a4e6-5206-9777-591e7d21ec68",
+      "score": 2,
+      "previousScore": 2,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Pedi para enviar um item separado e a observação não foi seguida. Isso atrapalhou bastante.",
+      "replies": [],
+      "createdAt": "2026-11-14T04:55:41.697Z",
+      "order": {
+        "id": "e681df07-5140-55d6-82d5-3965c444c843",
+        "shortId": "5448",
+        "createdAt": "2026-11-14T03:29:41.697Z"
+      },
+      "surveyId": "2e201b62-8318-5f71-9262-100f6be0839f",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "5c8ac9ad-8877-5b90-8205-e9698c938ea6",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Açaí bem saboroso e chegou geladinho. Só melhoraria a quantidade de complementos. O que mais pesou na minha avaliação foi a experiência da entrega.",
+      "replies": [],
+      "createdAt": "2026-09-22T04:05:41.697Z",
+      "order": {
+        "id": "b4a7d45e-340f-5bbf-8ff0-d926dcd2140d",
+        "shortId": "6582",
+        "createdAt": "2026-09-22T02:28:41.697Z"
+      },
+      "surveyId": "9d87f582-1c4b-519c-83d6-b8dfb2749e7e",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "42aa23a9-6506-50d8-85c0-1b64d716c6c1",
+      "score": 2,
+      "previousScore": 2,
+      "hasScoreChanged": false,
+      "status": "ANSWERED",
+      "comment": "O açaí até estava gostoso, mas a entrega atrasou bastante e faltou uma colher.",
+      "replies": [
+        {
+          "createdAt": "2026-11-16T10:37:41.697Z",
+          "text": "Sentimos muito pela experiência relatada. Vamos revisar os pontos mencionados com nossa equipe. Obrigado pelo retorno.",
+          "from": "MERCHANT"
+        }
+      ],
+      "createdAt": "2026-11-16T07:25:41.697Z",
+      "order": {
+        "id": "1556083b-233b-56e9-83f3-b9035c6ab396",
+        "shortId": "7089",
+        "createdAt": "2026-11-16T05:56:41.697Z"
+      },
+      "surveyId": "d22443ca-1fdd-5e8c-9b6a-a43807a2fa41",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "d2645263-bd24-528b-b507-d91609185cbd",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Boa experiência! Embalagem firme e pedido correto. Poderiam mandar mais guardanapos.",
+      "replies": [],
+      "createdAt": "2026-08-24T01:37:41.697Z",
+      "order": {
+        "id": "ccb2f257-deb5-5ced-a940-427d2c9fe412",
+        "shortId": "6764",
+        "createdAt": "2026-08-24T00:37:41.697Z"
+      },
+      "surveyId": "2420c7bc-26f5-5161-8037-6428c2b84310",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "ea0411e8-92ba-534f-b157-f8df18ea2f8b",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Entrega rápida, pedido certinho e complementos deliciosos. Recomendo! Minha expectativa era receber algo bem gelado e com boa consistência.",
+      "replies": [],
+      "createdAt": "2026-09-28T05:17:41.697Z",
+      "order": {
+        "id": "ef50ef76-3927-5585-870b-33a315ea7098",
+        "shortId": "6510",
+        "createdAt": "2026-09-28T04:03:41.697Z"
+      },
+      "surveyId": "d2aaea55-e1ef-5316-ae35-cb1860c347b0",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "08ed880d-ce5f-5391-b8e5-4f7325b25c4d",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Sorvete muito gostoso, textura ótima e apresentação caprichada.",
+      "replies": [],
+      "createdAt": "2026-10-24T05:57:41.697Z",
+      "order": {
+        "id": "79769dbe-d3cf-587f-b425-f3df143c8500",
+        "shortId": "2047",
+        "createdAt": "2026-10-24T05:02:41.697Z"
+      },
+      "surveyId": "6f188f2d-19da-5c01-9d0a-0936a3a2f790",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "172d7e6c-66a5-55f2-b7a1-6920dca39204",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Experiência mediana: o açaí estava bom, mas a apresentação poderia melhorar.",
+      "replies": [],
+      "createdAt": "2026-10-16T16:22:41.697Z",
+      "order": {
+        "id": "a5d46feb-f6f4-5427-8a4e-8dda0b682657",
+        "shortId": "3794",
+        "createdAt": "2026-10-16T15:05:41.697Z"
+      },
+      "surveyId": "47fc1ead-735a-5580-a00f-4c6a13fb932c",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "4e2e71e2-e585-50c3-88cc-81c618cdb450",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "O açaí chegou firme, sem derreter, e os ingredientes estavam muito bons. Nota dez! Achei a combinação interessante, principalmente pela variedade de texturas. A combinação de sabor, apresentação e cuidado com o pedido fez diferença para mim.",
+      "replies": [],
+      "createdAt": "2026-10-11T02:26:41.697Z",
+      "order": {
+        "id": "379cb496-8c0e-5566-bd10-330c68e0ac46",
+        "shortId": "6188",
+        "createdAt": "2026-10-11T01:28:41.697Z"
+      },
+      "surveyId": "44e761cc-b3ea-5231-8e23-2e85e10c7d89",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "7aad71fa-572e-5995-a463-c40fbfd67acf",
+      "score": 1,
+      "previousScore": 1,
+      "hasScoreChanged": true,
+      "status": "CREATED",
+      "comment": "Não gostei. O sabor estava muito diferente do habitual e a apresentação deixou a desejar.",
+      "replies": [],
+      "createdAt": "2026-08-31T01:43:41.697Z",
+      "order": {
+        "id": "28b1b762-5ba1-5df8-91b4-2ede7654a690",
+        "shortId": "7547",
+        "createdAt": "2026-08-31T01:06:41.697Z"
+      },
+      "surveyId": "a0421025-4d93-52c7-be84-2e53410ea7b0",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "4e72e6b4-3db0-53cd-a05e-4d5ea871f397",
+      "score": 2,
+      "previousScore": 2,
+      "hasScoreChanged": false,
+      "status": "ANSWERED",
+      "comment": "O sabor é razoável, mas chegou mole e com a granola toda úmida. Poderiam separar melhor os complementos.",
+      "replies": [
+        {
+          "createdAt": "2026-08-16T08:56:41.697Z",
+          "text": "Sentimos muito pela experiência relatada. Vamos revisar os pontos mencionados com nossa equipe. Obrigado pelo retorno.",
+          "from": "MERCHANT"
+        }
+      ],
+      "createdAt": "2026-08-16T05:44:41.697Z",
+      "order": {
+        "id": "95248184-ec66-5695-81d3-e5542a01317b",
+        "shortId": "7946",
+        "createdAt": "2026-08-16T04:49:41.697Z"
+      },
+      "surveyId": "12ab82bd-a11b-5945-821e-653a749c44e3",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "e729da20-3105-519f-b8cb-e0ed24420072",
+      "score": 2,
+      "previousScore": 2,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "O açaí até estava gostoso, mas a entrega atrasou bastante e faltou uma colher. Comparei com outros pedidos que costumo fazer na região.",
+      "replies": [],
+      "createdAt": "2026-09-07T06:04:41.697Z",
+      "order": {
+        "id": "b8ab0612-1945-54e3-971f-9e5f17fa9d7e",
+        "shortId": "7445",
+        "createdAt": "2026-09-07T05:05:41.697Z"
+      },
+      "surveyId": "cddcd769-66f9-5e09-9256-b92b0611ba17",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "43fab026-a35b-5f42-b7da-ad7a3c16680e",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Boa experiência! Embalagem firme e pedido correto. Poderiam mandar mais guardanapos.",
+      "replies": [],
+      "createdAt": "2026-08-27T05:26:41.697Z",
+      "order": {
+        "id": "ddadb96d-8ad9-5269-ac7c-3c11d5db416a",
+        "shortId": "3246",
+        "createdAt": "2026-08-27T04:21:41.697Z"
+      },
+      "surveyId": "3f80a87b-b9fd-576b-829f-afbd150154d3",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "a2d17c9d-bed9-5968-aff2-403884d2f4d3",
+      "score": 1,
+      "previousScore": 1,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Pedido chegou incompleto. Faltaram os acompanhamentos e não consegui resolver na hora.",
+      "replies": [],
+      "createdAt": "2026-08-15T08:17:41.697Z",
+      "order": {
+        "id": "c0312fb0-d828-5662-a950-e5abab18c37f",
+        "shortId": "9507",
+        "createdAt": "2026-08-15T07:01:41.697Z"
+      },
+      "surveyId": "afd10fab-c622-5415-9c40-dcce00a5dbfd",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "d8a59c55-a05b-5adc-9f5e-0eb3b6408049",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "O sorvete estava saboroso, embora tenha chegado um pouco mole. Foi a primeira vez que pedi nessa unidade.",
+      "replies": [],
+      "createdAt": "2026-09-01T06:39:41.697Z",
+      "order": {
+        "id": "abe34384-448c-5790-b230-43676e165158",
+        "shortId": "5188",
+        "createdAt": "2026-09-01T05:43:41.697Z"
+      },
+      "surveyId": "c4b0b1df-0efa-5c7b-b271-31d3c02210f1",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "2fa544f7-b975-522f-b3d3-38d9720d5ee8",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Amei a combinação com banana e granola. Estava tudo na medida certa.",
+      "replies": [],
+      "createdAt": "2026-11-15T08:47:41.697Z",
+      "order": {
+        "id": "a7ce9987-4286-54cb-ac6b-116a4b51dede",
+        "shortId": "5088",
+        "createdAt": "2026-11-15T08:04:41.697Z"
+      },
+      "surveyId": "ba07c004-289e-50af-adc5-d59399b83bc7",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "ec73c102-2687-5eaa-b536-eb3dcc54f9b7",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Muito bom! A montagem veio caprichada e o atendimento foi atencioso.",
+      "replies": [],
+      "createdAt": "2026-11-09T20:56:41.697Z",
+      "order": {
+        "id": "b64dcd7e-2b24-59c6-bd7e-53bbe627034c",
+        "shortId": "2389",
+        "createdAt": "2026-11-09T19:35:41.697Z"
+      },
+      "surveyId": "6ba4a323-308e-5320-95fc-cb235dcd91bb",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "0f38146e-c5fc-5e10-91d5-f8c348fa25fb",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "ANSWERED",
+      "comment": "Veio tudo certinho, porém a granola perdeu a crocância no caminho. Já tinha pedido antes e resolvi dar outra chance. A combinação de sabor, apresentação e cuidado com o pedido fez diferença para mim.",
+      "replies": [
+        {
+          "createdAt": "2026-08-20T04:37:41.697Z",
+          "text": "Obrigado pelo feedback! Vamos considerar sua sugestão para melhorar nossos pedidos.",
+          "from": "MERCHANT"
+        }
+      ],
+      "createdAt": "2026-08-20T01:25:41.697Z",
+      "order": {
+        "id": "657c77a1-802c-5586-bebe-5abeab1489d1",
+        "shortId": "5970",
+        "createdAt": "2026-08-20T00:26:41.697Z"
+      },
+      "surveyId": "3b468289-cd1f-58c1-8351-0c0aa740af85",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "5d3cb07d-3918-529a-b614-3f264136db42",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Açaí gostoso, mas poderia vir um pouco mais gelado.",
+      "replies": [],
+      "createdAt": "2026-11-03T05:31:41.697Z",
+      "order": {
+        "id": "0fa8ebb0-dbcb-5953-9ba0-f44b8c9fe301",
+        "shortId": "8022",
+        "createdAt": "2026-11-03T04:18:41.697Z"
+      },
+      "surveyId": "ef270d3d-be30-5f39-b4f2-81956f93500a",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "9e8146e6-0e76-5827-a174-29f2689e26cd",
+      "score": 1,
+      "previousScore": 1,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Pedi sem um complemento e veio justamente com ele. Além disso, demorou muito para chegar.",
+      "replies": [],
+      "createdAt": "2026-10-11T02:49:41.697Z",
+      "order": {
+        "id": "9e472cb4-5ab7-536d-922d-6b53dba4292b",
+        "shortId": "7849",
+        "createdAt": "2026-10-11T02:03:41.697Z"
+      },
+      "surveyId": "76521a40-c680-58ed-92ef-1d8fabda1ba4",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "c3a241c4-8f32-57b0-87b6-f8822899f584",
+      "score": 5,
+      "previousScore": 4,
+      "hasScoreChanged": true,
+      "status": "CREATED",
+      "comment": "Um dos melhores açaís que pedi ultimamente. Tudo fresquinho e bem montado. O pedido era para compartilhar em casa.",
+      "replies": [],
+      "createdAt": "2026-11-14T20:42:41.697Z",
+      "order": {
+        "id": "b9046da3-5701-55a2-a69c-9254b08fa7ef",
+        "shortId": "4929",
+        "createdAt": "2026-11-14T19:24:41.697Z"
+      },
+      "surveyId": "c2470ff7-2968-5354-969c-4aabb6f78c9a",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "f1d32e5f-44e4-5d37-8567-071c47920837",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Entrega dentro do prazo e pedido correto. Nada extraordinário, mas atende bem.",
+      "replies": [],
+      "createdAt": "2026-10-29T10:38:41.697Z",
+      "order": {
+        "id": "d343c935-62be-5dd8-b041-ca59afa676ac",
+        "shortId": "9723",
+        "createdAt": "2026-10-29T09:42:41.697Z"
+      },
+      "surveyId": "2141cf50-b5b7-502b-b23c-bd5519d0bf82",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "722fc691-cc7c-5027-9834-19e52fa5f4d0",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "O sorvete estava saboroso, embora tenha chegado um pouco mole.",
+      "replies": [],
+      "createdAt": "2026-09-09T03:48:41.697Z",
+      "order": {
+        "id": "c893479b-f5ce-59dc-9676-0116d1b58b1d",
+        "shortId": "2592",
+        "createdAt": "2026-09-09T03:21:41.697Z"
+      },
+      "surveyId": "ed3e44a3-5b00-57ff-903e-9982b8ad8080",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "0d5e19c1-148e-58b6-ba45-e13b24e88f82",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Experiência mediana: o açaí estava bom, mas a apresentação poderia melhorar. Escolhi a opção pensando em um lanche depois do trabalho.",
+      "replies": [],
+      "createdAt": "2026-09-08T13:08:41.697Z",
+      "order": {
+        "id": "77bdbd12-658f-532f-8d91-68a0da06a163",
+        "shortId": "4693",
+        "createdAt": "2026-09-08T12:06:41.697Z"
+      },
+      "surveyId": "d4704fa9-c4ef-51e3-9c70-842497632c0e",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "2f89f381-4daf-581b-9c41-7a189cc794e1",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "ANSWERED",
+      "comment": "O açaí chegou firme, sem derreter, e os ingredientes estavam muito bons. Nota dez!",
+      "replies": [
+        {
+          "createdAt": "2026-10-25T07:33:41.697Z",
+          "text": "Agradecemos pela avaliação e pelo carinho! Esperamos atender você novamente em breve.",
+          "from": "MERCHANT"
+        }
+      ],
+      "createdAt": "2026-10-25T04:21:41.697Z",
+      "order": {
+        "id": "48a820e7-56b8-5e74-b3db-0e0ea38c133a",
+        "shortId": "6482",
+        "createdAt": "2026-10-25T03:55:41.697Z"
+      },
+      "surveyId": "08918406-0d4a-5cef-bb0d-dc4b3d81c8f4",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "d5366a56-62f1-5a76-af3e-03f02e413aff",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Gostei da sobremesa, principalmente do equilíbrio entre o açaí e os acompanhamentos.",
+      "replies": [],
+      "createdAt": "2026-11-17T16:16:41.697Z",
+      "order": {
+        "id": "7e935f21-f52d-56fa-9e01-4bddd9dfd81a",
+        "shortId": "3426",
+        "createdAt": "2026-11-17T15:38:41.697Z"
+      },
+      "surveyId": "e978e13d-2f9a-5770-9abf-02971eda839a",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "1d757d60-974b-54bb-869e-4c95dbcc5f7b",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Açaí gostoso, mas poderia vir um pouco mais gelado. Pedi no fim da tarde, quando estava bastante calor. A combinação de sabor, apresentação e cuidado com o pedido fez diferença para mim.",
+      "replies": [],
+      "createdAt": "2026-08-17T07:09:41.697Z",
+      "order": {
+        "id": "6c732582-7c78-5a50-be72-e80ac9bcd993",
+        "shortId": "2902",
+        "createdAt": "2026-08-17T05:31:41.697Z"
+      },
+      "surveyId": "e7c414e4-c70f-5830-b74b-98b35270c4b4",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "7dd53477-8d47-5cd4-a552-1015d3657477",
+      "score": 1,
+      "previousScore": 1,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Pedi sem um complemento e veio justamente com ele. Além disso, demorou muito para chegar.",
+      "replies": [],
+      "createdAt": "2026-09-22T10:35:41.697Z",
+      "order": {
+        "id": "8e756dce-0faa-5f13-bce3-4f9ca40087c3",
+        "shortId": "8672",
+        "createdAt": "2026-09-22T09:45:41.697Z"
+      },
+      "surveyId": "96f6f9b0-2d85-5f11-9b09-1af6ee5d39b8",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "f3ee0a52-880c-5de8-8e93-def931f759a3",
+      "score": 1,
+      "previousScore": 1,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Infelizmente veio com gosto estranho e textura muito aguada. Não correspondeu ao que eu esperava.",
+      "replies": [],
+      "createdAt": "2026-08-24T11:16:41.697Z",
+      "order": {
+        "id": "dbaa7c6f-43a0-547a-954d-b7e9cf31e661",
+        "shortId": "7225",
+        "createdAt": "2026-08-24T10:23:41.697Z"
+      },
+      "surveyId": "e867445c-d478-5dce-bdbf-70495ed240a5",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "6787b5a4-1d1a-590f-b854-29a62de1d41d",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Entrega rápida, pedido certinho e complementos deliciosos. Recomendo! A observação que deixei no aplicativo era importante para mim.",
+      "replies": [],
+      "createdAt": "2026-11-15T18:15:41.697Z",
+      "order": {
+        "id": "28f9c079-53f8-514f-bd61-79b395b15093",
+        "shortId": "4203",
+        "createdAt": "2026-11-15T17:48:41.697Z"
+      },
+      "surveyId": "c51d782a-e35e-51d0-8b80-6ce9f7c03510",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "768d7b18-a61d-5785-a931-755022605d8e",
+      "score": 1,
+      "previousScore": 1,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Muito decepcionante. A tampa abriu no transporte e parte do açaí ficou espalhada na sacola.",
+      "replies": [],
+      "createdAt": "2026-10-21T23:00:41.697Z",
+      "order": {
+        "id": "e8b6fa5b-5818-5396-8697-2b07d93a6f05",
+        "shortId": "5026",
+        "createdAt": "2026-10-21T22:15:41.697Z"
+      },
+      "surveyId": "5fa233de-7fea-5c2a-b41b-e579a8375615",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "69b6cd10-ec8e-511d-8eed-f327bbb46f0b",
+      "score": 3,
+      "previousScore": 2,
+      "hasScoreChanged": true,
+      "status": "ANSWERED",
+      "comment": "Experiência mediana: o açaí estava bom, mas a apresentação poderia melhorar.",
+      "replies": [
+        {
+          "createdAt": "2026-09-16T22:06:41.697Z",
+          "text": "Obrigado pelo feedback! Vamos considerar sua sugestão para melhorar nossos pedidos.",
+          "from": "MERCHANT"
+        }
+      ],
+      "createdAt": "2026-09-16T18:54:41.697Z",
+      "order": {
+        "id": "731a51b2-4ad4-559b-a1af-ed8bf4ede9fc",
+        "shortId": "3583",
+        "createdAt": "2026-09-16T17:49:41.697Z"
+      },
+      "surveyId": "1bfacc96-c4b1-5035-bae8-6112dc511718",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "be5efe5f-0efe-550c-b04d-6c5c87b22bf1",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Muito bom! A montagem veio caprichada e o atendimento foi atencioso. O que mais pesou na minha avaliação foi a experiência da entrega.",
+      "replies": [],
+      "createdAt": "2026-09-29T14:56:41.697Z",
+      "order": {
+        "id": "0aa63867-a653-5a77-be74-8c25307772b4",
+        "shortId": "3655",
+        "createdAt": "2026-09-29T14:05:41.697Z"
+      },
+      "surveyId": "ebd28d88-8882-54f8-be2b-777b87b107c2",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "16c6ceca-9c62-5cf6-94fc-403750c1404e",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Pedi para dividir os complementos e veio exatamente como solicitado. Atendimento excelente.",
+      "replies": [],
+      "createdAt": "2026-08-26T18:06:41.697Z",
+      "order": {
+        "id": "91fc64ae-ceee-5214-a90b-f0b42f22d573",
+        "shortId": "2504",
+        "createdAt": "2026-08-26T17:39:41.697Z"
+      },
+      "surveyId": "08d36c55-eb55-5b83-b4e2-09af919052d7",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "b1336e03-ab67-53a1-9375-59bc9697e71c",
+      "score": 2,
+      "previousScore": 2,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "O sabor é razoável, mas chegou mole e com a granola toda úmida. Poderiam separar melhor os complementos.",
+      "replies": [],
+      "createdAt": "2026-09-14T23:21:41.697Z",
+      "order": {
+        "id": "bfc5fe5e-9967-55af-acbc-5e0e09ffc807",
+        "shortId": "2619",
+        "createdAt": "2026-09-14T22:41:41.697Z"
+      },
+      "surveyId": "dedc96d4-f119-5671-b155-1a435725cf6c",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "f6a321c3-632c-5b66-becf-22a7c83f89fd",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Bom no geral. A embalagem segurou bem, só achei a porção pequena pelo valor. Minha expectativa era receber algo bem gelado e com boa consistência. A combinação de sabor, apresentação e cuidado com o pedido fez diferença para mim.",
+      "replies": [],
+      "createdAt": "2026-09-19T22:49:41.697Z",
+      "order": {
+        "id": "cb78aa0d-60be-5c6e-9adc-b7ab684858cb",
+        "shortId": "3133",
+        "createdAt": "2026-09-19T22:16:41.697Z"
+      },
+      "surveyId": "856b51c1-9151-5ab8-aec0-669420cb4572",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "d55af3a1-5e4f-5a01-9263-e721aff4dc21",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "O sabor agradou, mas senti falta de mais opções de complemento na montagem.",
+      "replies": [],
+      "createdAt": "2026-09-18T07:54:41.697Z",
+      "order": {
+        "id": "4ba16304-ab47-5f46-85db-0204e25eb7e6",
+        "shortId": "1815",
+        "createdAt": "2026-09-18T07:07:41.697Z"
+      },
+      "surveyId": "7a5a7f16-4367-5179-aaeb-49353d1a4cae",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "29fcf153-a0b3-5271-a05b-05e084eaa60b",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "O sorvete estava cremoso e gostoso. Vou pedir novamente para experimentar outras combinações.",
+      "replies": [],
+      "createdAt": "2026-08-29T18:00:41.697Z",
+      "order": {
+        "id": "b2cc8078-81f6-516e-8e90-fb3d3fa8edc9",
+        "shortId": "9572",
+        "createdAt": "2026-08-29T17:08:41.697Z"
+      },
+      "surveyId": "165cbf9f-0018-5b8c-9e7c-88ed952cefe4",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "64073614-caa0-528f-9168-7760a102a1e8",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "ANSWERED",
+      "comment": "Sorvete muito gostoso, textura ótima e apresentação caprichada. Achei a combinação interessante, principalmente pela variedade de texturas.",
+      "replies": [
+        {
+          "createdAt": "2026-10-22T07:07:41.697Z",
+          "text": "Agradecemos pela avaliação e pelo carinho! Esperamos atender você novamente em breve.",
+          "from": "MERCHANT"
+        }
+      ],
+      "createdAt": "2026-10-22T03:55:41.697Z",
+      "order": {
+        "id": "609c3d9a-7954-5c4e-92d0-447382ab49fa",
+        "shortId": "7280",
+        "createdAt": "2026-10-22T02:31:41.697Z"
+      },
+      "surveyId": "a84a932c-3b5a-55e6-8f82-a18e2a25074c",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "ae5a9b0b-40f1-544e-b87d-5c84c5a2f966",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Experiência mediana: o açaí estava bom, mas a apresentação poderia melhorar.",
+      "replies": [],
+      "createdAt": "2026-10-21T15:45:41.697Z",
+      "order": {
+        "id": "bc4124a9-8f6b-56ed-97e8-aa38021b0598",
+        "shortId": "3801",
+        "createdAt": "2026-10-21T14:44:41.697Z"
+      },
+      "surveyId": "9e09fcb2-50e8-52be-b9bc-99122a779939",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "6e1ce828-e318-50fd-9336-bdda819d5e8a",
+      "score": 2,
+      "previousScore": 2,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "A entrega foi cordial, só que o produto chegou menos gelado do que deveria.",
+      "replies": [],
+      "createdAt": "2026-09-10T20:18:41.697Z",
+      "order": {
+        "id": "63ec1319-0d1f-523a-981c-34fbce7f0d45",
+        "shortId": "8904",
+        "createdAt": "2026-09-10T19:24:41.697Z"
+      },
+      "surveyId": "8351841a-2b74-5fbf-8a4b-15558430bfac",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "92512bd8-0496-53a6-925d-337042db0af4",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Pedi para dividir os complementos e veio exatamente como solicitado. Atendimento excelente. Comparei com outros pedidos que costumo fazer na região.",
+      "replies": [],
+      "createdAt": "2026-10-09T15:01:41.697Z",
+      "order": {
+        "id": "f5c54fd8-36d5-57f1-88bb-0e13a35fa9d0",
+        "shortId": "3958",
+        "createdAt": "2026-10-09T13:53:41.697Z"
+      },
+      "surveyId": "a51081f3-854f-5228-9741-c8d75af1b8a1",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "e1ed48b8-0f89-5f9d-9b3f-58a220657ea6",
+      "score": 4,
+      "previousScore": 3,
+      "hasScoreChanged": true,
+      "status": "CREATED",
+      "comment": "Açaí bem saboroso e chegou geladinho. Só melhoraria a quantidade de complementos.",
+      "replies": [],
+      "createdAt": "2026-09-24T11:20:41.697Z",
+      "order": {
+        "id": "dc6e851d-4bdf-522d-8797-708c1dd59324",
+        "shortId": "5684",
+        "createdAt": "2026-09-24T10:01:41.697Z"
+      },
+      "surveyId": "6cb6dc52-635b-5fc7-a9f8-d2f3341d34bf",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "9c78c8d7-4085-57d9-951b-5d202ee544b8",
+      "score": 1,
+      "previousScore": 1,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Pedi sem um complemento e veio justamente com ele. Além disso, demorou muito para chegar.",
+      "replies": [],
+      "createdAt": "2026-10-30T20:12:41.697Z",
+      "order": {
+        "id": "008bbe2a-ce30-5588-92ef-2fb197208b0a",
+        "shortId": "4441",
+        "createdAt": "2026-10-30T19:22:41.697Z"
+      },
+      "surveyId": "4f5bdbbf-a997-5ff2-a7ae-98b38ed4369b",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "d663a899-f8e2-5ee3-a2a3-ffd5da08a229",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Boa experiência! Embalagem firme e pedido correto. Poderiam mandar mais guardanapos. Foi a primeira vez que pedi nessa unidade. A combinação de sabor, apresentação e cuidado com o pedido fez diferença para mim.",
+      "replies": [],
+      "createdAt": "2026-10-18T02:09:41.697Z",
+      "order": {
+        "id": "eaad9867-0126-55d8-accb-e042c35d6e6e",
+        "shortId": "1777",
+        "createdAt": "2026-10-18T01:22:41.697Z"
+      },
+      "surveyId": "fcaf8263-0e2b-5908-95bd-9e0fe31c3ee8",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "4b0919a7-6de7-5b54-a75f-a30d2a43f8ec",
+      "score": 2,
+      "previousScore": 2,
+      "hasScoreChanged": false,
+      "status": "ANSWERED",
+      "comment": "Veio bem embalado, porém a textura estava aguada e o sabor pouco marcante.",
+      "replies": [
+        {
+          "createdAt": "2026-08-27T12:33:41.697Z",
+          "text": "Sentimos muito pela experiência relatada. Vamos revisar os pontos mencionados com nossa equipe. Obrigado pelo retorno.",
+          "from": "MERCHANT"
+        }
+      ],
+      "createdAt": "2026-08-27T09:21:41.697Z",
+      "order": {
+        "id": "989f3731-06cf-5853-8825-382b21ad0b35",
+        "shortId": "7049",
+        "createdAt": "2026-08-27T08:39:41.697Z"
+      },
+      "surveyId": "c87b4cb4-cdce-570a-83bb-3b33dd975d6b",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "c5481d41-dd25-5d88-91f2-2ba3a7374a67",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Sorvete muito gostoso, textura ótima e apresentação caprichada.",
+      "replies": [],
+      "createdAt": "2026-10-08T19:18:41.697Z",
+      "order": {
+        "id": "3cc7124e-2a4f-53c8-bcf6-52244d2185b3",
+        "shortId": "6913",
+        "createdAt": "2026-10-08T18:12:41.697Z"
+      },
+      "surveyId": "2a555707-507e-5724-86a5-4189cd57a3a7",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "140426be-67a1-548e-bf4b-a5e3ff228a24",
+      "score": 2,
+      "previousScore": 2,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Achei caro para a quantidade recebida. O sabor não foi ruim, mas esperava mais. Já tinha pedido antes e resolvi dar outra chance.",
+      "replies": [],
+      "createdAt": "2026-09-03T10:56:41.697Z",
+      "order": {
+        "id": "5e41ff5b-6dea-53e5-bfc8-13040396643c",
+        "shortId": "8102",
+        "createdAt": "2026-09-03T09:56:41.697Z"
+      },
+      "surveyId": "0f36401a-b180-586e-88cd-17ffdd75a940",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "2434e41c-a213-5ffb-a4eb-78c26f1907ab",
+      "score": 5,
+      "previousScore": 5,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "O açaí chegou firme, sem derreter, e os ingredientes estavam muito bons. Nota dez!",
+      "replies": [],
+      "createdAt": "2026-08-12T21:10:41.697Z",
+      "order": {
+        "id": "052e39ab-7479-509c-a3c4-9369a35e39f9",
+        "shortId": "1121",
+        "createdAt": "2026-08-12T20:15:41.697Z"
+      },
+      "surveyId": "805b9323-5145-557e-9bc6-c23e0784cd5e",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "a7d3a3a0-ea49-53cf-bf1d-5270062958bd",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Veio tudo certinho, porém a granola perdeu a crocância no caminho.",
+      "replies": [],
+      "createdAt": "2026-11-08T07:40:41.697Z",
+      "order": {
+        "id": "f8860324-17c3-5830-96d7-15038afcbc6b",
+        "shortId": "3977",
+        "createdAt": "2026-11-08T06:23:41.697Z"
+      },
+      "surveyId": "78198537-7768-5b17-856a-2750efcd6258",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "016885d6-37d8-5dd4-833f-80883fbe2968",
+      "score": 3,
+      "previousScore": 3,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Açaí gostoso, mas poderia vir um pouco mais gelado. O pedido era para compartilhar em casa.",
+      "replies": [],
+      "createdAt": "2026-10-29T21:20:41.697Z",
+      "order": {
+        "id": "26335f13-c2f8-54ca-958f-0e3133f37e53",
+        "shortId": "4682",
+        "createdAt": "2026-10-29T20:35:41.697Z"
+      },
+      "surveyId": "f9c2d1c6-c33c-5726-951e-b2923e9e3581",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "770b4643-4a5a-5f11-b0c2-91f4ec37c256",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "CREATED",
+      "comment": "Gostei bastante da textura e do sabor. A entrega atrasou alguns minutos, mas valeu a pena.",
+      "replies": [],
+      "createdAt": "2026-11-07T12:25:41.697Z",
+      "order": {
+        "id": "b43c698f-42b0-571f-9855-12abc2681693",
+        "shortId": "5553",
+        "createdAt": "2026-11-07T11:30:41.697Z"
+      },
+      "surveyId": "c5db9a92-e0ba-5f88-b1fd-d3a394fb8dc6",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "b839c1bf-999a-5af4-8511-674d5a02eaa0",
+      "score": 4,
+      "previousScore": 4,
+      "hasScoreChanged": false,
+      "status": "ANSWERED",
+      "comment": "Boa experiência! Embalagem firme e pedido correto. Poderiam mandar mais guardanapos.",
+      "replies": [
+        {
+          "createdAt": "2026-11-19T16:29:41.697Z",
+          "text": "Agradecemos pela avaliação e pelo carinho! Esperamos atender você novamente em breve.",
+          "from": "MERCHANT"
+        }
+      ],
+      "createdAt": "2026-11-19T13:17:41.697Z",
+      "order": {
+        "id": "7d074aa1-9bb1-5031-83e7-163b1960f45b",
+        "shortId": "9207",
+        "createdAt": "2026-11-19T11:55:41.697Z"
+      },
+      "surveyId": "5dd1d307-e253-5b70-8147-3d42d19c081f",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    },
+    {
+      "id": "8de0bb22-4a89-5646-83b4-8ac86393d64d",
+      "score": 4,
+      "previousScore": 3,
+      "hasScoreChanged": true,
+      "status": "CREATED",
+      "comment": "O sorvete estava cremoso e gostoso. Vou pedir novamente para experimentar outras combinações. Escolhi a opção pensando em um lanche depois do trabalho. A combinação de sabor, apresentação e cuidado com o pedido fez diferença para mim.",
+      "replies": [],
+      "createdAt": "2026-09-12T06:08:41.697Z",
+      "order": {
+        "id": "cabbab27-f80e-5fdc-b41a-96550a586d61",
+        "shortId": "3227",
+        "createdAt": "2026-09-12T04:57:41.697Z"
+      },
+      "surveyId": "7caf0655-0069-55e2-abed-7f55c93832d3",
+      "version": "2.0",
+      "visibility": "PUBLIC"
+    }
+  ],
+  "total": 100,
+  "pageCount": 1
+}
