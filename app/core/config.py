@@ -8,6 +8,8 @@ class Settings(BaseSettings):
     app_name: str
     api_version: str
     app_description: str
+    mongodb_uri: str
+    mongodb_database: str
 
     model_config = SettingsConfigDict(
         env_file=".env",
