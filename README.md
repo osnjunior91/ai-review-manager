@@ -2,9 +2,9 @@
 
 **AI-Powered Customer Feedback Analysis & Intelligent Review Management**
 
-AI Review Manager is a Python/FastAPI REST API project for turning customer reviews into actionable insights using large language models (LLMs). It currently supports local mock review retrieval, MongoDB connectivity checks, and **working AI analysis through Google Gemini or OpenAI** with a provider-independent interface.
+AI Review Manager is a Python/FastAPI REST API project for turning customer reviews into actionable insights using large language models (LLMs). It supports mock review retrieval, MongoDB connectivity, Gemini/OpenAI integrations, structured Gemini output validation, and a MongoDB repository with atomic review-processing reservations.
 
-> **Project status:** Work in progress. AI analysis is currently available through a Python test script, not yet through a public analysis API endpoint. Automated persistence, structured-output validation, analytics, and production integrations are planned.
+> **Project status:** Work in progress. AI analysis is available through local Python tests, not yet through a public analysis endpoint. The MongoDB repository and reservation/completion primitives exist, but the end-to-end AI processing orchestration, failure handler, and analytics API are not yet integrated.
 
 ## Implemented Features
 
@@ -16,6 +16,11 @@ AI Review Manager is a Python/FastAPI REST API project for turning customer revi
 - **External brand prompt** loaded from `app/prompts/review_analysis_prompt.md`.
 - **AI-powered review analysis** that asks for sentiment, satisfaction score, reasoning, keywords, praises, criticisms, and a suggested public reply.
 - **Token usage tracking** for input, output, and total tokens when reported by the provider.
+- **Structured Gemini responses** using `AIAnalysisResult` as the response schema, with Pydantic validation.
+- **MongoDB review analysis model and repository**, including `save()`, `find()`, `try_acquire()`, and `complete()`.
+- **Compound unique index** on `(tenant_id, platform, external_review_id)` to prevent duplicate review identities.
+- **Atomic processing reservations** with UUID tokens, a five-minute default lease, and recovery of `FAILED` or expired `PROCESSING` records.
+- **Token-checked completion** to prevent stale workers from overwriting a newer processing attempt.
 - **Local AI smoke test** in `test_ai.py`.
 
 ## Technology Stack
@@ -27,7 +32,7 @@ AI Review Manager is a Python/FastAPI REST API project for turning customer revi
 | Pydantic / Pydantic Settings | Models and configuration |
 | Google Gen AI SDK | Gemini integration |
 | OpenAI Python SDK | OpenAI integration |
-| MongoDB / PyMongo | Database connectivity; planned analysis persistence |
+| MongoDB / PyMongo | Database connectivity, analysis persistence, and processing coordination |
 | Docker | Optional local MongoDB environment |
 | JSON | Synthetic review dataset |
 
@@ -65,7 +70,7 @@ AI Review Manager is a Python/FastAPI REST API project for turning customer revi
            (content, model, token usage)
 ```
 
-**Planned processing path:** FastAPI analysis endpoint → review processing service → AI analysis → Pydantic-validated structured result → MongoDB `review_analyses` repository → reporting and analytics.
+**Implemented components:** Gemini schema validation and MongoDB `review_analyses` repository with processing reservation/completion methods. **Planned end-to-end path:** FastAPI analysis endpoint → processing service calls `try_acquire()` → Gemini/OpenAI analysis → validated result → `complete()` → stored result lookup and analytics. The repository does not currently invoke the AI service automatically.
 
 The AI service accepts an injected provider, making it easier to test or replace model integrations without changing the orchestration code.
 
@@ -79,7 +84,9 @@ ai-review-manager/
 │   ├── core/
 │   │   ├── config.py           # Pydantic Settings
 │   │   └── database.py         # MongoDB connection abstraction
-│   ├── models/                 # Review-related Pydantic models
+│   ├── models/
+│   │   ├── ai_analysis_result.py # Validated AI response schema
+│   │   └── review_analysis.py   # Stored analysis / processing state
 │   ├── prompts/
 │   │   └── review_analysis_prompt.md
 │   ├── providers/
@@ -87,6 +94,8 @@ ai-review-manager/
 │   │   ├── factory.py          # Provider selection
 │   │   ├── gemini_provider.py
 │   │   └── openai_provider.py
+│   ├── repositories/
+│   │   └── review_analysis_repository.py
 │   ├── services/
 │   │   └── ai_analysis_service.py
 │   └── main.py
@@ -208,7 +217,7 @@ It prints the generated analysis text, selected model, and token usage. A succes
 
 The brand-specific prompt currently describes **Nuvem Roxa**, a fictional Brazilian açaí and ice cream shop. It instructs the model to classify customer feedback objectively and generate concise, empathetic public replies without inventing facts or promises.
 
-The prompt requests these fields:
+The Gemini integration requests and validates these fields using the `AIAnalysisResult` Pydantic schema:
 
 | Field | Meaning |
 |---|---|
@@ -219,6 +228,9 @@ The prompt requests these fields:
 | `praises` | Positive aspects |
 | `criticisms` | Negative aspects |
 | `suggested_reply` | Suggested customer-facing reply |
+| `categories` | One or more of `PRODUCT`, `DELIVERY`, `SERVICE`, `PRICE`, `OTHER` |
+| `severity` | `LOW`, `MEDIUM`, or `HIGH` |
+| `requires_attention` | Whether human attention is required |
 
 Example of a model-generated response:
 
@@ -230,11 +242,14 @@ Example of a model-generated response:
   "keywords": ["açaí", "delicioso", "demora", "entrega"],
   "praises": ["sabor do açaí"],
   "criticisms": ["demora na entrega"],
+  "categories": ["PRODUCT", "DELIVERY"],
+  "severity": "MEDIUM",
+  "requires_attention": false,
   "suggested_reply": "Que bom que você gostou do nosso açaí! 💜 Sentimos muito pela demora na entrega e agradecemos pelo feedback."
 }
 ```
 
-**Current limitation:** The provider returns this JSON as **text** in `AIProviderResponse.content`. Schema-enforced structured outputs and Pydantic validation of the model response are **not implemented yet**. Suggested replies should be reviewed before publication.
+**Current behavior:** `GeminiProvider` requests JSON matching `AIAnalysisResult`, validates it with Pydantic, and serializes the validated result into `AIProviderResponse.content`. The shared provider response still carries JSON as a string. Do not assume the OpenAI adapter has the same schema enforcement without verifying it separately. Suggested replies should be reviewed before publication.
 
 ### Provider Contract
 
@@ -266,11 +281,76 @@ These are observations from **one test case**, not a guaranteed average. Input t
 
 The current integration tracks usage but **does not calculate prices or persist usage records**. API prices, free-tier quotas, and model availability are subject to provider changes.
 
-## MongoDB and Data Roadmap
+## MongoDB Persistence and Idempotency
 
-MongoDB connectivity is implemented, but automated analysis persistence is planned. The intended `review_analyses` collection will hold the original review reference, validated analysis fields, provider/model metadata, timestamps, and token usage.
+The `ReviewAnalysis` Pydantic model (`app/models/review_analysis.py`) represents a stored analysis and its processing state. It contains:
 
-Planned safeguards include avoiding duplicate processing, tracking prompt/model versions, and using stored analyses when a review has already been processed under the same configuration.
+- Identity: `tenant_id`, `platform`, `external_review_id`.
+- Processing: `status` (`PROCESSING`, `COMPLETED`, `FAILED`), `processing_token`, `lease_until`, `last_error`.
+- Result: optional `analysis: AIAnalysisResult`.
+- Metadata: `ai_provider`, `ai_model`, input/output/total tokens.
+- Reply approval: `reply_status` (`PENDING_APPROVAL`, `APPROVED`, `REJECTED`).
+- Timestamps: `created_at`, `updated_at`, `processed_at`.
+
+### Repository operations
+
+`ReviewAnalysisRepository` in `app/repositories/review_analysis_repository.py` uses the `review_analyses` collection:
+
+| Method | Behavior |
+|---|---|
+| `save(review)` | Inserts a Pydantic model and returns the MongoDB ID as a string |
+| `find(tenant_id, platform, external_review_id)` | Looks up one analysis by its composite identity |
+| `try_acquire(..., lease_seconds=300)` | Attempts an atomic processing reservation; returns a UUID token or `None` |
+| `complete(..., processing_token, analysis)` | Completes only an active, unexpired reservation with a matching token; returns `bool` |
+
+The repository constructor creates the unique compound index `uq_tenant_platform_review` on `(tenant_id, platform, external_review_id)`. The index prevents two documents with the same review identity and ensures competing initial inserts cannot both succeed. Index creation fails if existing documents violate that uniqueness constraint.
+
+### Reservation flow
+
+1. `try_acquire()` first attempts to insert a `PROCESSING` record with a UUID `processing_token` and a lease expiry (300 seconds by default).
+2. If the identity already exists, MongoDB raises `DuplicateKeyError`. The repository then uses `find_one_and_update()` to atomically acquire an existing `FAILED` record or a `PROCESSING` record with an expired lease.
+3. A `COMPLETED` record or a `PROCESSING` record with a valid lease cannot be acquired and yields `None`.
+4. After an AI result is available, `complete()` updates the record only if the status is `PROCESSING`, the token matches, and `lease_until` is still in the future. It writes `analysis`, sets `status=COMPLETED`, records `completed_at`, and unsets the temporary reservation fields.
+
+**Concurrency scope:** The insert plus unique index and the conditional MongoDB updates protect the *reservation*. They do not make the external Gemini call transactional. If a worker calls Gemini but crashes before completing the record, a later attempt may call Gemini again after the lease expires. A lease expiring while a worker is still running can also lead to overlapping external calls; the token check prevents a stale worker from committing its result.
+
+**Current gaps:** There is not yet a `fail()` method, lease renewal/heartbeat, a processing service that orchestrates `try_acquire() → AI → complete()`, or an API endpoint that returns a cached completed analysis. The model defines `processed_at`, while the current `complete()` method writes `completed_at`; these timestamp names should be aligned. The repository's `find()` validates MongoDB documents as Pydantic models; integration tests should cover BSON `_id` and schema consistency.
+
+### Manual reservation test
+
+With MongoDB running, the project root active, and the virtual environment enabled, create a temporary script such as `test_acquire.py`:
+
+```python
+from uuid import uuid4
+
+from app.core.database import MongoDatabase
+from app.repositories.review_analysis_repository import ReviewAnalysisRepository
+
+db = MongoDatabase()
+try:
+    repository = ReviewAnalysisRepository(db)
+    review_id = str(uuid4())
+
+    first = repository.try_acquire("loja-001", "IFOOD", review_id)
+    second = repository.try_acquire("loja-001", "IFOOD", review_id)
+
+    print("First reservation:", first)   # UUID
+    print("Second reservation:", second) # None
+
+    if first is not None:
+        completed = repository.complete(
+            "loja-001", "IFOOD", review_id, first,
+            {"sentiment": "POSITIVE", "satisfaction_score": 10}
+        )
+        print("Completed:", completed)  # True
+        print("After completion:", repository.try_acquire(
+            "loja-001", "IFOOD", review_id
+        ))  # None
+finally:
+    db.close()
+```
+
+Run `python test_acquire.py`. The minimal `analysis` dictionary here demonstrates repository persistence only; real Gemini results should conform to the complete `AIAnalysisResult` schema. For recovery testing, set a test document's `status` to `FAILED` in MongoDB Compass and call `try_acquire()` again. This test file is an example to create locally, not a committed automated test.
 
 ## Roadmap
 
@@ -282,11 +362,15 @@ Planned safeguards include avoiding duplicate processing, tracking prompt/model 
 - [x] AI analysis smoke test
 - [x] Input/output/total token tracking
 - [x] Initial prompt optimization
-- [ ] Schema-enforced structured outputs with Pydantic
+- [x] Schema-enforced Gemini structured outputs with Pydantic
 - [ ] Automated unit and integration tests
 - [ ] Review analysis API endpoint
-- [ ] MongoDB analysis repository and persistence
-- [ ] Idempotent processing and caching
+- [x] MongoDB analysis model, repository, and direct persistence methods
+- [x] Unique compound review identity index
+- [x] Atomic processing reservation with token and lease expiry
+- [x] Token-checked processing completion
+- [ ] Failure handling and retry policy (`fail()`)
+- [ ] End-to-end idempotent AI orchestration and cached result retrieval
 - [ ] Token cost estimation and per-client usage reporting
 - [ ] Sentiment/topic analytics
 - [ ] External review provider integration
