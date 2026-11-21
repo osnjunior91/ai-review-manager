@@ -32,6 +32,9 @@ class ReviewAnalysis(BaseModel):
     lease_until: datetime | None = None
     last_error: str | None = None
 
+    # Original customer review
+    review_comment: str | None = None
+
     # AI result
     analysis: AIAnalysisResult | None = None
 

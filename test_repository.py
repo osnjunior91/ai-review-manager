@@ -5,42 +5,61 @@ from app.core.database import MongoDatabase
 from app.repositories.review_analysis_repository import (
     ReviewAnalysisRepository,
 )
+from app.services.ai_analysis_service import AIAnalysisService
+from app.services.review_processing_service import (
+    ReviewProcessingService,
+)
+
 
 database = MongoDatabase()
 
 try:
     repository = ReviewAnalysisRepository(database)
-    review_id = str(uuid4())
+    ai_service = AIAnalysisService()
 
-    token = repository.try_acquire(
-        tenant_id="loja-001",
-        platform="IFOOD",
-        external_review_id=review_id
+    service = ReviewProcessingService(
+        repository=repository,
+        ai_service=ai_service
     )
 
-    print("Reserva:", token)
+    # Unique ID to guarantee a new review
+    review_id = str(uuid4())
 
-    completed = repository.complete(
+    print("\n=== FIRST REQUEST ===")
+
+    first = service.process(
         tenant_id="loja-001",
         platform="IFOOD",
         external_review_id=review_id,
-        processing_token=token,
-        analysis={
-            "sentiment": "POSITIVE",
-            "satisfaction_score": 10,
-            "suggested_reply": "Muito obrigado pela avaliação!"
-        }
+        review_comment="Açaí maravilhoso, chegou rapidinho!"
     )
 
-    print("Finalização:", completed)
+    print("Status:", first.status)
+    print("From cache:", first.from_cache)
+    print("Analysis:", first.analysis)
 
-    second_attempt = repository.try_acquire(
+    print("\n=== SECOND REQUEST ===")
+
+    second = service.process(
         tenant_id="loja-001",
         platform="IFOOD",
-        external_review_id=review_id
+        external_review_id=review_id,
+        review_comment="Açaí maravilhoso, chegou rapidinho!"
     )
 
-    print("Nova tentativa:", second_attempt)
+    print("Status:", second.status)
+    print("From cache:", second.from_cache)
+    print("Analysis:", second.analysis)
+
+    assert first.status == "COMPLETED"
+    assert first.from_cache is False
+
+    assert second.status == "COMPLETED"
+    assert second.from_cache is True
+
+    assert first.analysis == second.analysis
+
+    print("\nALL TESTS PASSED!")
 
 finally:
     database.close()

@@ -116,7 +116,13 @@ class ReviewAnalysisRepository:
         platform: str,
         external_review_id: str,
         processing_token: str,
-        analysis: dict
+        analysis: dict,
+        ai_provider: str,
+        ai_model: str,
+        review_comment: str,
+        input_tokens: int | None,
+        output_tokens: int | None,
+        total_tokens: int | None
     ) -> bool:
 
         now = datetime.now(timezone.utc)
@@ -133,8 +139,14 @@ class ReviewAnalysisRepository:
             {
                 "$set": {
                     "status": "COMPLETED",
+                    "review_comment": review_comment,
                     "analysis": analysis,
-                    "completed_at": now,
+                    "ai_provider": ai_provider,
+                    "ai_model": ai_model,
+                    "input_tokens": input_tokens,
+                    "output_tokens": output_tokens,
+                    "total_tokens": total_tokens,
+                    "processed_at": now,
                     "updated_at": now
                 },
                 "$unset": {
@@ -146,5 +158,42 @@ class ReviewAnalysisRepository:
         )
 
         return result.modified_count == 1
+
+ 
+    def fail(
+        self,
+        tenant_id: str,
+        platform: str,
+        external_review_id: str,
+        processing_token: str,
+        error_message: str
+    ) -> bool:
+
+        now = datetime.now(timezone.utc)
+
+        result = self.collection.update_one(
+            {
+                "tenant_id": tenant_id,
+                "platform": platform,
+                "external_review_id": external_review_id,
+                "status": "PROCESSING",
+                "processing_token": processing_token,
+                "lease_until": {"$gt": now}
+            },
+            {
+                "$set": {
+                    "status": "FAILED",
+                    "last_error": error_message,
+                    "updated_at": now
+                },
+                "$unset": {
+                    "processing_token": "",
+                    "lease_until": ""
+                }
+            }
+        )
+
+        return result.modified_count == 1
+
 
 
