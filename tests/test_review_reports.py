@@ -6,6 +6,7 @@ from fastapi.testclient import TestClient
 
 from app.main import app
 from app.core.dependencies import get_review_batch_service
+from app.repositories.review_analysis_repository import ReviewAnalysisRepository
 from app.services.review_query_service import ReviewQueryService
 from app.services.review_statistics_service import ReviewStatisticsService
 
@@ -65,19 +66,17 @@ def test_statistics_mixed_values():
     repository = Mock()
     repository.get_statistics.return_value = {
         "totals": [{"total": 4, "completed": 3, "processing": 1, "failed": 0}],
-        "valid": [{
-            "sentiments": [
-                {"_id": "POSITIVE", "count": 1},
-                {"_id": "NEGATIVE", "count": 1},
-                {"_id": "MIXED", "count": 1},
-            ],
-            "severities": [{"_id": "HIGH", "count": 1}],
-            "metrics": [{"average": 7.333, "requires_attention": 1,
-                         "valid_count": 3, "negative": 1}],
-            "keywords": [{"_id": "entrega", "count": 2}],
-            "criticisms": [{"_id": "demora", "count": 2}],
-            "categories": [{"_id": "DELIVERY", "count": 2}],
-        }],
+        "sentiments": [
+            {"_id": "POSITIVE", "count": 1},
+            {"_id": "NEGATIVE", "count": 1},
+            {"_id": "MIXED", "count": 1},
+        ],
+        "severities": [{"_id": "HIGH", "count": 1}],
+        "metrics": [{"average": 7.333, "requires_attention": 1,
+                     "valid_count": 3, "negative": 1}],
+        "keywords": [{"_id": "entrega", "count": 2}],
+        "criticisms": [{"_id": "demora", "count": 2}],
+        "categories": [{"_id": "DELIVERY", "count": 2}],
     }
     result = ReviewStatisticsService(repository).get_statistics(
         None, None, None, None
@@ -167,3 +166,26 @@ def test_post_analyze_endpoint_regression():
         batch_service.process_random.assert_called_once_with(1)
     finally:
         app.dependency_overrides.clear()
+
+
+def test_statistics_pipeline_has_no_nested_facet():
+    collection = Mock()
+    collection.aggregate.return_value = [{
+        "totals": [],
+        "sentiments": [],
+        "severities": [],
+        "metrics": [],
+        "keywords": [],
+        "criticisms": [],
+        "categories": [],
+    }]
+    repository = ReviewAnalysisRepository.__new__(ReviewAnalysisRepository)
+    repository.collection = collection
+
+    repository.get_statistics()
+
+    pipeline = collection.aggregate.call_args.args[0]
+    facet_stages = [stage["$facet"] for stage in pipeline if "$facet" in stage]
+    assert len(facet_stages) == 1
+    for facet_pipeline in facet_stages[0].values():
+        assert not any("$facet" in stage for stage in facet_pipeline)

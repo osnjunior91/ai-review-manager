@@ -20,20 +20,22 @@ class ReviewStatisticsService:
             tenant_id, platform, start_date, end_date
         )
         totals = raw.get("totals", [{}])[0] if raw.get("totals") else {}
-        valid = raw.get("valid", [])
-        valid = valid[0] if valid else {}
+        sentiments_rows = raw.get("sentiments", [])
+        severities_rows = raw.get("severities", [])
+        categories_rows = raw.get("categories", [])
+        metrics_rows = raw.get("metrics", [])
 
         sentiments = {name: 0 for name in ["POSITIVE", "NEGATIVE", "NEUTRAL", "MIXED"]}
         severities = {name: 0 for name in ["LOW", "MEDIUM", "HIGH"]}
         categories = {name: 0 for name in ["PRODUCT", "DELIVERY", "SERVICE", "PRICE", "OTHER"]}
-        for row in valid.get("sentiments", []):
+        for row in sentiments_rows:
             sentiments[row["_id"]] = row["count"]
-        for row in valid.get("severities", []):
+        for row in severities_rows:
             severities[row["_id"]] = row["count"]
-        for row in valid.get("categories", []):
+        for row in categories_rows:
             categories[row["_id"]] = row["count"]
 
-        metrics = valid.get("metrics", [{}])[0] if valid.get("metrics") else {}
+        metrics = metrics_rows[0] if metrics_rows else {}
         negative = metrics.get("negative", 0)
         valid_count = metrics.get("valid_count", 0)
         negative_percentage = round(negative / valid_count * 100, 2) if valid_count else 0.0
@@ -52,11 +54,11 @@ class ReviewStatisticsService:
             "negative_percentage": negative_percentage,
             "top_keywords": [
                 {"keyword": row["_id"], "count": row["count"]}
-                for row in valid.get("keywords", [])
+                for row in raw.get("keywords", [])
             ],
             "top_criticisms": [
                 {"keyword": row["_id"], "count": row["count"]}
-                for row in valid.get("criticisms", [])
+                for row in raw.get("criticisms", [])
             ],
             "categories": categories,
             "denominator_notes": {

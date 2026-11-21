@@ -312,49 +312,45 @@ class ReviewAnalysisRepository:
                         "failed": {"$sum": {"$cond": [{"$eq": ["$status", "FAILED"]}, 1, 0]}},
                     }},
                 ],
-                "valid": [
-                    {"$match": {
-                        "status": "COMPLETED",
-                        "analysis": {"$ne": None},
+                "sentiments": [
+                    {"$match": {"status": "COMPLETED", "analysis": {"$ne": None}, "analysis.sentiment": {"$in": ["POSITIVE", "NEGATIVE", "NEUTRAL", "MIXED"]}}},
+                    {"$group": {"_id": "$analysis.sentiment", "count": {"$sum": 1}}},
+                ],
+                "severities": [
+                    {"$match": {"status": "COMPLETED", "analysis": {"$ne": None}, "analysis.severity": {"$in": ["LOW", "MEDIUM", "HIGH"]}}},
+                    {"$group": {"_id": "$analysis.severity", "count": {"$sum": 1}}},
+                ],
+                "metrics": [
+                    {"$match": {"status": "COMPLETED", "analysis": {"$ne": None}}},
+                    {"$group": {
+                        "_id": None,
+                        "average": {"$avg": "$analysis.satisfaction_score"},
+                        "requires_attention": {"$sum": {"$cond": [{"$eq": ["$analysis.requires_attention", True]}, 1, 0]}},
+                        "valid_count": {"$sum": 1},
+                        "negative": {"$sum": {"$cond": [{"$eq": ["$analysis.sentiment", "NEGATIVE"]}, 1, 0]}},
                     }},
-                    {"$facet": {
-                        "sentiments": [
-                            {"$match": {"analysis.sentiment": {"$in": ["POSITIVE", "NEGATIVE", "NEUTRAL", "MIXED"]}}},
-                            {"$group": {"_id": "$analysis.sentiment", "count": {"$sum": 1}}},
-                        ],
-                        "severities": [
-                            {"$match": {"analysis.severity": {"$in": ["LOW", "MEDIUM", "HIGH"]}}},
-                            {"$group": {"_id": "$analysis.severity", "count": {"$sum": 1}}},
-                        ],
-                        "metrics": [
-                            {"$group": {
-                                "_id": None,
-                                "average": {"$avg": "$analysis.satisfaction_score"},
-                                "requires_attention": {"$sum": {"$cond": [{"$eq": ["$analysis.requires_attention", True]}, 1, 0]}},
-                                "valid_count": {"$sum": 1},
-                                "negative": {"$sum": {"$cond": [{"$eq": ["$analysis.sentiment", "NEGATIVE"]}, 1, 0]}},
-                            }},
-                        ],
-                        "keywords": [
-                            {"$unwind": "$analysis.keywords"},
-                            {"$match": {"analysis.keywords": {"$ne": None}}},
-                            {"$group": {"_id": {"$toLower": "$analysis.keywords"}, "count": {"$sum": 1}}},
-                            {"$sort": {"count": -1, "_id": 1}},
-                            {"$limit": 10},
-                        ],
-                        "criticisms": [
-                            {"$unwind": "$analysis.criticisms"},
-                            {"$match": {"analysis.criticisms": {"$ne": None}}},
-                            {"$group": {"_id": {"$toLower": "$analysis.criticisms"}, "count": {"$sum": 1}}},
-                            {"$sort": {"count": -1, "_id": 1}},
-                            {"$limit": 10},
-                        ],
-                        "categories": [
-                            {"$unwind": "$analysis.categories"},
-                            {"$match": {"analysis.categories": {"$in": ["PRODUCT", "DELIVERY", "SERVICE", "PRICE", "OTHER"]}}},
-                            {"$group": {"_id": "$analysis.categories", "count": {"$sum": 1}}},
-                        ],
-                    }},
+                ],
+                "keywords": [
+                    {"$match": {"status": "COMPLETED", "analysis": {"$ne": None}}},
+                    {"$unwind": "$analysis.keywords"},
+                    {"$match": {"analysis.keywords": {"$ne": None}}},
+                    {"$group": {"_id": {"$toLower": "$analysis.keywords"}, "count": {"$sum": 1}}},
+                    {"$sort": {"count": -1, "_id": 1}},
+                    {"$limit": 10},
+                ],
+                "criticisms": [
+                    {"$match": {"status": "COMPLETED", "analysis": {"$ne": None}}},
+                    {"$unwind": "$analysis.criticisms"},
+                    {"$match": {"analysis.criticisms": {"$ne": None}}},
+                    {"$group": {"_id": {"$toLower": "$analysis.criticisms"}, "count": {"$sum": 1}}},
+                    {"$sort": {"count": -1, "_id": 1}},
+                    {"$limit": 10},
+                ],
+                "categories": [
+                    {"$match": {"status": "COMPLETED", "analysis": {"$ne": None}}},
+                    {"$unwind": "$analysis.categories"},
+                    {"$match": {"analysis.categories": {"$in": ["PRODUCT", "DELIVERY", "SERVICE", "PRICE", "OTHER"]}}},
+                    {"$group": {"_id": "$analysis.categories", "count": {"$sum": 1}}},
                 ],
             }
         })
