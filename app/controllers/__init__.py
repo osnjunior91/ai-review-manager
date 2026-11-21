@@ -8,10 +8,14 @@ from app.controllers.reviews_controller import (
 from app.controllers.review_analysis_controller import (
     router as review_analysis_router,
 )
+from app.controllers.review_reports_controller import (
+    router as review_reports_router,
+)
 
 
 routers = [
     health_router,
     reviews_router,
     review_analysis_router,
+    review_reports_router,
 ]

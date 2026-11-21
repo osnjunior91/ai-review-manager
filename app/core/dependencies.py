@@ -14,6 +14,8 @@ from app.services.review_processing_service import (
 from app.services.review_batch_service import (
     ReviewBatchService,
 )
+from app.services.review_query_service import ReviewQueryService
+from app.services.review_statistics_service import ReviewStatisticsService
 
 
 def get_review_processing_service() -> Generator[
@@ -44,3 +46,25 @@ def get_review_batch_service(
         repository=processing_service.repository,
         processing_service=processing_service
     )
+
+
+def get_review_repository() -> Generator[
+    ReviewAnalysisRepository, None, None
+]:
+    database = MongoDatabase()
+    try:
+        yield ReviewAnalysisRepository(database)
+    finally:
+        database.close()
+
+
+def get_review_query_service(
+    repository: ReviewAnalysisRepository = Depends(get_review_repository)
+) -> ReviewQueryService:
+    return ReviewQueryService(repository)
+
+
+def get_review_statistics_service(
+    repository: ReviewAnalysisRepository = Depends(get_review_repository)
+) -> ReviewStatisticsService:
+    return ReviewStatisticsService(repository)

@@ -202,16 +202,37 @@ It prints the generated analysis text, selected model, and token usage. A succes
 | GET | `/health/database` | MongoDB connectivity |
 | GET | `/version` | API version |
 | GET | `/reviews/` | Retrieve synthetic customer reviews |
+| POST | `/reviews/analyze` | Analyze random synthetic reviews with idempotent processing |
+| GET | `/reviews/analyses` | List stored analyses with filters and MongoDB pagination |
+| GET | `/reviews/analyses/{id}` | Fetch one analysis by MongoDB ObjectId |
+| GET | `/reviews/statistics` | Aggregated sentiment, satisfaction, severity, keyword, criticism, and category statistics |
+| GET | `/reviews/usage` | Recorded token usage and estimated model cost |
 
 ### Planned (not yet implemented)
 
 | Method | Endpoint | Purpose |
 |---|---|---|
 | POST | `/reviews/{review_id}/analyze` | Analyze a review |
-| GET | `/reviews/analyses` | List stored analyses |
-| GET | `/reviews/{review_id}/analysis` | Fetch an analysis |
 | GET | `/analytics/sentiment` | Sentiment breakdown |
 | GET | `/analytics/topics` | Frequent praise/criticism topics |
+
+### Query and report endpoints
+
+`GET /reviews/analyses` accepts `page` (default `1`), `page_size` (default `20`, maximum `100`), `tenant_id`, `platform`, `status` (`PROCESSING`, `COMPLETED`, or `FAILED`), `sentiment`, `severity`, `requires_attention`, `start_date`, and `end_date`. Dates are interpreted as UTC. The reporting date interval starts inclusively and ends exclusively, using `processed_at` when available and otherwise `created_at`.
+
+Example:
+
+```text
+GET /reviews/analyses?page=1&page_size=20&tenant_id=nuvem-roxa-001&platform=IFOOD&status=COMPLETED&sentiment=POSITIVE
+```
+
+`GET /reviews/analyses/{id}` requires a valid MongoDB ObjectId. An optional `tenant_id` restricts the lookup to that tenant. Invalid IDs return `400`; missing documents return `404`.
+
+`GET /reviews/statistics` accepts `tenant_id`, `platform`, `start_date`, and `end_date`. It returns status totals, sentiment/severity distributions, average satisfaction, attention count, negative percentage, top keywords and criticisms, and category counts. Sentiment, satisfaction, severity, keywords, criticisms, and categories use only `COMPLETED` documents with a valid `analysis`. The negative percentage denominator is the count of those valid completed analyses.
+
+`GET /reviews/usage` accepts `tenant_id`, `ai_provider`, `ai_model`, `start_date`, `end_date`, and `group_by` (`day`, `month`, `model`, or `provider`). Input, output, and total tokens are aggregated with MongoDB pipelines. Missing or null token fields are not converted to zero and are reported as unknown metrics.
+
+Model pricing is centralized in `app/core/model_rates.py`. It is intentionally empty until verified USD-per-million input/output tariffs are configured. When a tariff is absent or a document lacks complete metrics, cost is omitted or `null` and `cost_is_complete` is `false`; a group containing complete and unknown metrics may show a partial estimate while remaining explicitly incomplete. Costs are estimates, not billed charges. Recorded usage may exclude tokens consumed by requests that failed before MongoDB persistence.
 
 ## AI Analysis
 
@@ -351,6 +372,18 @@ finally:
 ```
 
 Run `python test_acquire.py`. The minimal `analysis` dictionary here demonstrates repository persistence only; real Gemini results should conform to the complete `AIAnalysisResult` schema. For recovery testing, set a test document's `status` to `FAILED` in MongoDB Compass and call `try_acquire()` again. This test file is an example to create locally, not a committed automated test.
+
+## Automated tests
+
+Run the isolated pytest suite without any Gemini or OpenAI calls:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+python -m pip install pytest
+python -m pytest -q tests
+```
+
+The tests use mocks for repository and service behavior and verify endpoint schemas and parameter validation.
 
 ## Roadmap
 
