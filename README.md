@@ -32,6 +32,8 @@ AI Review Manager is a Python/FastAPI learning and portfolio project that turns 
 
 ## Architecture
 
+![AI Review Manager MVP architecture](docs/images/architecture.svg)
+
 ```mermaid
 flowchart TD
     Client[Swagger / HTTP client] --> API[FastAPI controllers]
